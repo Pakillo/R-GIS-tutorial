@@ -5,5 +5,8 @@ This is a tutorial on how to perform basic GIS operations in R, such as importin
 
 Francisco Rodriguez-Sanchez   
 http://sites.google.com/site/rodriguezsanchezf
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b58367c1f638906d49c8df96fbaf55d250a3e550
