@@ -1,23 +1,157 @@
-Using R as a GIS
+
+Spatial data in R: Using R as a GIS     
 ========================================================
 
-Working with spatial data and basic GIS operations in R
--------------------------------------------------------
-v 2.0  
-15/02/2013   
-Francisco Rodriguez-Sanchez  
 
-Look for the latest version at
-http://sites.google.com/site/rodriguezsanchezf
+A tutorial to perform basic operations with spatial data in R, such as importing and exporting data (both vectorial and raster), plotting, analysing and making maps.
 
 
-```{r}
-setwd("~/UsingR-GIS")    # set working directory
-```
+[Francisco Rodriguez-Sanchez](http://sites.google.com/site/rodriguezsanchezf) 
 
 
-BASIC PACKAGES
---------------
+v 2.1  
+
+18-12-2013 
+
+
+Check out latest version at [http://pakillo.github.io/R-GIS-tutorial](http://pakillo.github.io/R-GIS-tutorial)
+
+
+
+<br>
+<br>
+<br>
+
+CONTENTS <a name="contents"></a>
+=========
+
+<br>
+<br>
+
+[1. INTRODUCTION](#intro)
+<br>
+<br>
+
+
+[2. GENERIC MAPPING](#mapping)
+<br>
+  
+  * [Retrieving base maps from Google with `gmap` function in package `dismo`](#gmap)
+  
+  * [`RgoogleMaps`: Map your data onto Google Map tiles](#rgooglemaps)
+  
+  * [`googleVis`: visualise data in a web browser using Google Visualisation API](#googlevis)
+  
+  * [`RWorldMap`: mapping global data](#rworldmap)
+<br>
+<br>
+
+
+[3. SPATIAL VECTOR DATA (points, lines, polygons)](#vector)
+<br>
+
+  * [Example dataset: retrieve point occurrence data from GBIF](#gbif)
+  
+  * [Making data 'spatial'](#spatial)
+  
+  * [Define spatial projection](#projection)
+  
+  * [Quickly plotting point data on a map](#plot)
+  
+  * [Subsetting and mapping again](#subset)
+  
+  * [Mapping vectorial data (points, polygons, polylines)](#mapvector)
+  
+  * [Drawing polygons and polylines (e.g. for digitising)](#digitise)
+  
+  * [Converting between formats, reading in, and saving spatial vector data](#iovec)
+  
+  * [Changing projection of spatial vector data](#changeproj)
+<br>
+<br>
+  
+  
+[4. USING RASTER (GRID) DATA](#raster)
+<br>
+
+  * [Downloading raster climate data from internet](#getdata)
+  
+  * [Loading a raster layer](#loadraster)
+  
+  * [Creating a raster stack](#rasterstack)
+  
+  * [Raster bricks](#rasterbrick)
+  
+  * [Crop rasters](#cropraster)
+  
+  * [Define spatial projection of the rasters](#projectionraster)
+  
+  * [Changing projection](#changeprojraster)
+  
+  * [Plotting raster data](#plotraster)
+  
+  * [Spatial autocorrelation](#autocorrelation)
+  
+  * [Extract values from raster](#extract)
+  
+  * [Rasterize vector data (points, lines or polygons)](#rasterize)
+  
+  * [Changing raster resolution](#resolution)
+  
+  * [Spline interpolation](#interpolation)
+  
+  * [Setting all rasters to the same extent, projection and resolution all in one](#spatialsync)
+  
+  * [Elevations, slope, aspect, etc](#elevation)
+  
+  * [Saving and exporting raster data](#saveraster)
+<br>
+<br>
+
+
+
+
+[5. SPATIAL STATISTICS](#spatstats)
+<br>
+
+  * [Point pattern analysis](#pointpatterns)
+  
+  * [Geostatistics](#geostatistics)
+<br> 
+<br>
+
+  
+  
+[6. INTERACTING WITH OTHER GIS](#othergis)
+<br>
+<br>
+
+[7. OTHER USEFUL PACKAGES](#otherpackages)
+<br>
+<br>
+
+[8. TO LEARN MORE](#tolearnmore)
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+1. INTRODUCTION <a name="intro"></a>
+===============
+
+<br>
+
+R is great not only for doing statistics, but also for many other tasks, including GIS analysis and working with spatial data. For instance, R is capable of doing wonderful maps such as [this](http://spatialanalysis.co.uk/wp-content/uploads/2012/02/bike_ggplot.png) or [this](http://oscarperpinan.github.io/spacetime-vis/images/airMadrid_stamen.png). In this tutorial I will show some basic GIS functionality in R.
+
+
+
+#### Basic packages
 
 ```{r message=FALSE}
 
@@ -25,26 +159,181 @@ library(sp)         # classes for spatial data
 library(raster)     # grids, rasters
 library(rasterVis)  # raster visualisation
 library(maptools)   
+library(rgeos)
     # and their dependencies
 ```
 
-   
+There are many other useful packages, e.g. check [CRAN Spatial Task View](http://cran.r-project.org/web/views/Spatial.html). Some of them will be used below.
+
+<br>
+[Back to Contents](#contents)
+<br>
+<br>
+<br>
+<br>
+
+
      
-     
-VISUALISING GEOGRAPHICAL DATA
-=============================
+2. GENERIC MAPPING <a name="mapping"></a>
+==================
+
+<br>
+
+
+Retrieving base maps from Google with `gmap` function in package `dismo` <a name="gmap"></a>
+------------------------------------------------------------------------
+
+Some examples:
+
+Getting maps for countries:
+
+```{r gmap1, message=FALSE}
+
+library(dismo)
+  
+mymap <- gmap("France")   # choose whatever country
+plot(mymap)
+```
+
+Choose map type:
+```{r gmap2, message=FALSE}
+mymap <- gmap("France", type="satellite")  
+plot(mymap)
+```
+
+Choose zoom level:
+```{r gmap3, message=FALSE}
+mymap <- gmap("France", type="satellite", exp=3)
+plot(mymap)
+```
+
+Save the map as a file in your working directory for future use
+```{r message=FALSE}
+mymap <- gmap("France", type="satellite", filename="France.gmap")    
+```
+
+
+Now get a map for a region drawn at hand
+
+```{r eval=FALSE}
+
+mymap <- gmap("Europe")
+plot(mymap)
+
+select.area <- drawExtent()   
+# now click 2 times on the map to select your region
+mymap <- gmap(select.area)
+plot(mymap)
+# See ?gmap for many other possibilities
+```
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+
+`RgoogleMaps`: Map your data onto Google Map tiles <a name="rgooglemaps"></a>
+------------------------------------------------
+
+```{r message=FALSE, results='hide'}
+library(RgoogleMaps) 
+```
+
+
+Get base maps from Google (a file will be saved in your working directory)
+```{r message=FALSE, results='hide'}
+newmap <- GetMap(center=c(36.7,-5.9), zoom =10, destfile = "newmap.png", maptype = "satellite")   
+
+# Now using bounding box instead of center coordinates:
+newmap2 <- GetMap.bbox(lonR=c(-5, -6), latR=c(36, 37), destfile = "newmap2.png", maptype="terrain")   
+
+# Try different maptypes
+newmap3 <- GetMap.bbox(lonR=c(-5, -6), latR=c(36, 37), destfile = "newmap3.png", maptype="satellite")
+```
+
+
+Now plot data onto these maps, e.g. these 3 points
+```{r}
+PlotOnStaticMap(lat = c(36.3, 35.8, 36.4), lon = c(-5.5, -5.6, -5.8), zoom= 10, 
+                cex=4, pch= 19, col="red", FUN = points, add=F)
+
+```
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+`googleVis`: visualise data in a web browser using Google Visualisation API <a name="googlevis"></a>
+---------------------------------------------------------------------------
+
+```{r message=FALSE}
+library(googleVis) 
+```
+
+Run `demo(googleVis)` to see all the possibilities
+
+
+```{r setOptions, echo=FALSE}
+op <- options(gvis.plot.tag = "chart")  
+# necessary so that googleVis works with knitr, see http://lamages.blogspot.co.uk/2012/10/googlevis-032-is-released-better.html
+```
+
+<br>
+
+### Example: plot country-level data
+```{r results='asis', tidy=FALSE, eval=TRUE}
+data(Exports)    # a simple data frame
+Geo <- gvisGeoMap(Exports, locationvar="Country", numvar="Profit", 
+                  options=list(height=400, dataMode='regions'))
+plot(Geo)
+```
+Using `print(Geo)` we can get the HTML code to embed the map in a web page!
+
+<br>
+
+### Example: Plotting point data onto a google map (internet)
+```{r results='asis', tidy=FALSE, eval=TRUE}
+data(Andrew)
+M1 <- gvisMap(Andrew, "LatLong", "Tip", 
+              options=list(showTip=TRUE, showLine=F, enableScrollWheel=TRUE, 
+                           mapType='satellite', useMapTypeControl=TRUE, width=800,height=400))
+plot(M1)
+```
+
 
   
-  
+    
+<br>
+<br>
 
-RWORLDMAP: for mapping global data
-----------------------------------
+
+
+
+
+`RWorldMap`: mapping global data <a name="rworldmap"></a>
+--------------------------------
+
+Some examples
 
 ```{r message=FALSE, warning=FALSE}
 
 library(rworldmap)
 
-# examples:
 newmap <- getMap(resolution="coarse")    # different resolutions available
 plot(newmap)
 ```
@@ -65,124 +354,38 @@ mapGriddedData(mapRegion="europe")
 
 
 
-  
-    
-GOOGLEVIS: visualise data in a web browser using Google Visualisation API
--------------------------------------------------------------------------
 
-```{r message=FALSE}
-
-library(googleVis) 
-
-# demo(googleVis)   # run this demo to see all the possibilities
-```
-
-```{r setOptions, echo=FALSE}
-op <- options(gvis.plot.tag = "chart")  
-# necessary so that googleVis works with knitr, see http://lamages.blogspot.co.uk/2012/10/googlevis-032-is-released-better.html
-```
-
-
-Example: plot country-level data
-```{r results='asis', tidy=FALSE, eval=FALSE}
-data(Exports)
-View(Exports)       # a simple data frame
-Geo <- gvisGeoMap(Exports, locationvar="Country", numvar="Profit", 
-                  options=list(height=400, dataMode='regions'))
-# print(Geo)  # this prints HTML code that can be embedded in a web page!
-plot(Geo)
-
-```
-
-
-Example: Plotting point data onto a google map (internet)
-```{r results='asis', tidy=FALSE, eval=FALSE}
-data(Andrew)
-M1 <- gvisMap(Andrew, "LatLong" , "Tip", options=list(showTip=TRUE, showLine=F, enableScrollWheel=TRUE,
-                         mapType='satellite', useMapTypeControl=TRUE, width=800,height=400))
-plot(M1)
-
-```
-
-
-  
+<br>
+[Back to Contents](#contents)
+<br>
+<br>
+<br>
+<br>
+<br>
     
 
 
-RGOOGLEMAPS: Map your data onto Google Map tiles
-------------------------------------------------
 
-```{r message=FALSE, results='hide'}
-
-library(RgoogleMaps)   
-
-# First, get maps from Google (a file will be saved in your working directory)
-newmap <- GetMap(center=c(36.7,-5.9), zoom =10, destfile = "newmap.png", maptype = "satellite")   
-
-# Now using bounding box instead of center coordinates:
-newmap2 <- GetMap.bbox(lonR=c(-5, -6), latR=c(36, 37), destfile = "newmap2.png", maptype="terrain")   
-
-# Try different maptypes
-newmap3 <- GetMap.bbox(lonR=c(-5, -6), latR=c(36, 37), destfile = "newmap3.png", maptype="satellite")
-```
-
-```{r}
-# Now plot data onto these maps, e.g. these 3 points
-PlotOnStaticMap(lat = c(36.3, 35.8, 36.4), lon = c(-5.5, -5.6, -5.8), zoom= 10, cex=2, pch= 19, col="red", FUN = points, add=F)
-
-```
 
 
 
   
    
-LIBRARY "DISMO": FUNCTION GMAP
-------------------------------
 
 
+3. SPATIAL VECTOR DATA (points, lines, polygons) <a name="vector"></a>
+================================================
+
+<br>
+<br>
+
+### Example dataset: retrieve point occurrence data from GBIF <a name="gbif"></a>
+
+Let's create an example dataset: retrieve occurrence data 
+for the laurel tree (Laurus nobilis) from the 
+[Global Biodiversity Information Facility (GBIF)](http://gbif.org)
 ```{r message=FALSE}
-
-library(dismo)
-  
-# Some examples
-
-# Getting maps for countries
-mymap <- gmap("France")   # choose whatever country
-plot(mymap)
-mymap <- gmap("France", type="satellite")   # choose map type
-plot(mymap)
-mymap <- gmap("France", type="satellite", exp=3)  # choose the zoom level
-plot(mymap)
-
-# Save the map as a file in your wd for future use
-mymap <- gmap("France", type="satellite", filename="France.gmap")    
-```
-
-```{r eval=FALSE}
-# Now get a map for a region drawn at hand
-mymap <- gmap("Europe")
-plot(mymap)
-select.area <- drawExtent()   # now click 2 times on the map to select your region
-mymap <- gmap(select.area)
-plot(mymap)
-# See ?gmap for many other possibilities
-
-
-```
-
-
-
-
-SPATIAL VECTOR DATA (POINTS, POLYGONS, ETC)
-===========================================
-
-
-
-
-Let's create an example dataset:
-```{r message=FALSE}
-# Get known locations of the laurel tree (Laurus nobilis) from GBIF
-library(dismo)      # check also the nice "rgbif" library! 
+library(dismo)      # check also the nice "rgbif" package! 
 laurus <- gbif("Laurus", "nobilis")      
 # get data frame with spatial coordinates (points)
 locs <- subset(laurus, select=c("country", "lat", "lon"))
@@ -192,23 +395,32 @@ head(locs)    # a simple data frame with coordinates
 locs <- subset(locs, locs$lat<90)
 ```
 
-Making your data 'spatial'
+<br>
+
+### Making data 'spatial' <a name="spatial"></a>
+
+So we have got a simple dataframe containing spatial coordinates. 
+Let's make these data explicitly *spatial*
 ```{r}
 coordinates(locs) <- c("lon", "lat")    # set spatial coordinates
 plot(locs)
 ```
 
 
-Define geographical projection:
+### Define spatial projection <a name="projection"></a>
+
+Important: define geographical projection. 
+Consult the appropriate PROJ.4 description here: 
+[http://www.spatialreference.org/](http://www.spatialreference.org/)
 ```{r}
-# to look for the appropriate PROJ.4 description look here:
-# http://www.spatialreference.org/
 crs.geo <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")    # geographical, datum WGS84
 proj4string(locs) <- crs.geo     # define projection system of our data
 summary(locs)
 ```
 
-Plotting point data on a map
+<br>
+
+### Quickly plotting point data on a map <a name="plot"></a>
 ```{r}
 plot(locs, pch=20, col="steelblue")
 library(rworldmap)
@@ -218,81 +430,110 @@ data(countriesLow)
 plot(coastsCoarse, add=T)
 ```
 
-Subsetting
-```{r}
-table(locs@data$country)     # see localities of Laurus nobilis by country
-locs.gr <- subset(locs, locs$country=="GR")   # select only locs in Greece
-plot(locs.gr, pch=20, cex=2, col="steelblue")
-title("Laurus nobilis occurrences in Greece")
-plot(countriesLow, add=T)
-summary(locs.gr)
 
-locs.gb <- subset(locs, locs$country=="GB")    # locs in UK
+### Subsetting and mapping again <a name="subset"></a>
+```{r}
+table(locs$country)     # see localities of Laurus nobilis by country
+
+locs.gb <- subset(locs, locs$country=="United Kingdom")    # select only locs in UK
 plot(locs.gb, pch=20, cex=2, col="steelblue")
 title("Laurus nobilis occurrences in UK")
 plot(countriesLow, add=T)
+summary(locs.gb)
 
 ```
 
 
+<br>
 
+Mapping vectorial data (points, polygons, polylines) <a name="mapvector"></a>
+---------------------------------------------------------------------
 
-MAKING MAPS WITH VECTORIAL SPATIAL DATA (POINTS, POLYGONS, POLYLINES)
-=====================================================================
+<br>
 
+### Mapping vectorial data using `gmap` from `dismo`
 
-USING RGOOGLEMAPS
------------------
-
-```{r message=FALSE}
-
-require(RgoogleMaps)
-locs.gb.coords <- as.data.frame(coordinates(locs.gb))    # retrieves coordinates (1st column for longitude, 2nd column for latitude)
-PlotOnStaticMap(lat = locs.gb.coords$lat, lon = locs.gb.coords$lon, zoom= 5, cex=1.4, pch= 19, col="red", FUN = points, add=F)
-
-## Downloading map from Google Maps and plotting onto it
-map.lim <- qbbox (locs.gb.coords$lat, locs.gb.coords$lon, TYPE="all")    # define region of interest (bounding box)
-mymap <- GetMap.bbox(map.lim$lonR, map.lim$latR, destfile = "gmap.png", maptype="satellite")
-# see the file in the wd
-PlotOnStaticMap(mymap, lat = locs.gb.coords$lat, lon = locs.gb.coords$lon, zoom= NULL, cex=1.3, pch= 19, col="red", FUN = points, add=F)
-
-## using different background
-mymap <- GetMap.bbox(map.lim$lonR, map.lim$latR, destfile = "gmap.png", maptype="hybrid")
-PlotOnStaticMap(mymap, lat = locs.gb.coords$lat, lon = locs.gb.coords$lon, zoom= NULL, cex=1.3, pch= 19, col="red", FUN = points, add=F)
-
-```
-
-
-
-USING "DISMO": FUNCTION GMAP
-------------------------------
 
 ```{r}
 gbmap <- gmap(locs.gb, type="satellite")
-locs.gb.merc <- Mercator(locs.gb)    # Google Maps are in Mercator projection. This function projects the points to that projection to enable mapping
+locs.gb.merc <- Mercator(locs.gb)    # Google Maps are in Mercator projection. 
+  # This function projects the points to that projection to enable mapping
 plot(gbmap)
 points(locs.gb.merc, pch=20, col="red")
 ```
 
 
 
-PLOTTING ONTO A GOOGLE MAP USING GOOGLEVIS (internet)
------------------------------------------------------
 
-```{r results='asis', tidy=FALSE, eval=FALSE}
+
+<br>
+
+### Mapping vectorial data with `RgoogleMaps` 
+
+
+```{r message=FALSE}
+
+require(RgoogleMaps)
+
+locs.gb.coords <- as.data.frame(coordinates(locs.gb))    # retrieves coordinates 
+  # (1st column for longitude, 2nd column for latitude)
+PlotOnStaticMap(lat = locs.gb.coords$lat, lon = locs.gb.coords$lon, 
+                zoom= 5, cex=1.4, pch= 19, col="red", FUN = points, add=F)
+```
+
+Download base map from Google Maps and plot onto it
+```{r message=FALSE}
+map.lim <- qbbox (locs.gb.coords$lat, locs.gb.coords$lon, TYPE="all")    # define region 
+  # of interest (bounding box)
+mymap <- GetMap.bbox(map.lim$lonR, map.lim$latR, destfile = "gmap.png", maptype="satellite")
+# see the file in the wd
+PlotOnStaticMap(mymap, lat = locs.gb.coords$lat, lon = locs.gb.coords$lon, 
+                zoom= NULL, cex=1.3, pch= 19, col="red", FUN = points, add=F)
+```
+
+<br>
+<br>
+
+Using different background (base map)
+```{r message=FALSE}
+mymap <- GetMap.bbox(map.lim$lonR, map.lim$latR, destfile = "gmap.png", maptype="hybrid")
+PlotOnStaticMap(mymap, lat = locs.gb.coords$lat, lon = locs.gb.coords$lon, 
+                zoom= NULL, cex=1.3, pch= 19, col="red", FUN = points, add=F)
+
+```
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+### Map vectorial data with `googleVis` (internet) 
+
+
+```{r results='asis', tidy=FALSE, eval=TRUE}
 points.gb <- as.data.frame(locs.gb)
 points.gb$latlon <- paste(points.gb$lat, points.gb$lon, sep=":")
 map.gb <- gvisMap(points.gb, locationvar="latlon", tipvar="country", 
                   options = list(showTip=T, showLine=F, enableScrollWheel=TRUE,
                            useMapTypeControl=T, width=1400,height=800))
 plot(map.gb)
-#print(map.gb)    # get HTML suitable for a web page
+#print(map.gb)    # get HTML suitable for a webpage
 ```
 
 
 
-DRAWING POLYGONS AND POLYLINES
-------------------------------
+
+<br>
+<br>
+<br>
+
+### Drawing polygons and polylines (e.g. for digitising) <a name="digitise"></a>
+
 
 ```{r eval=FALSE}
 plot(gbmap)
@@ -301,62 +542,79 @@ summary(mypolygon)    # now you have a spatial polygon! Easy, isn't it?
 ```
 
 
+<br>
+<br>
+<br>
+<br>
 
+Converting between formats, reading in, and saving spatial vector data <a name="iovec"></a>
+-------------------------------------------------------------------
 
-CONVERTING, READING AND SAVING SPATIAL VECTOR DATA
-==================================================
+<br>
 
-
-Exporting KML (Google Earth)
-----------------------------
+### Exporting KML (Google Earth)
 ```{r}
 writeOGR(locs.gb, dsn="locsgb.kml", layer="locs.gb", driver="KML")
 ```
 
-Reading kml
------------
+### Reading KML
 ```{r}
 newmap <- readOGR("locsgb.kml", layer="locs.gb")
 ```
 
-Saving as a Shapefile
----------------------
+### Save as shapefile
 ```{r}
 writePointsShape(locs.gb, "locsgb")
 ```
 
-Reading shapefiles
---------------------------
+### Reading shapefiles
 ```{r}
 gb.shape <- readShapePoints("locsgb.shp")
 plot(gb.shape)
-
-# readShapePoly         # read polygon shapefiles   
-# readShapeLines        # read polylines   
-# see also shapefile in "raster"   
 ```
+Use `readShapePoly` to read polygon shapefiles, and `readShapeLines` to read polylines.
+See also `shapefile` in `raster` package.   
 
 
 
+<br>
+<br>
+<br>
 
+Changing projection of spatial vector data <a name="changeproj"></a>
+-------------------------------------------
 
-CHANGING PROJECTION OF SPATIAL VECTOR DATA
-==========================================
+`spTransform` (package `sp`) will do the projection as long as the original and new projection are correctly specified.
 
+<br>
+
+### Projecting point dataset
+
+To illustrate, let's project the dataframe with Laurus nobilis coordinates that we obtained above:
 ```{r}
-# Projecting data frame with Laurus nobilis coordinates
-summary(locs)    # original coordinates in lat lon
-# define new projection; look up parameters at http://spatialreference.org
+summary(locs)
+```
+The original coordinates are in lat lon format. Let's define the new desired projection:
+Lambert Azimuthal Equal Area in this case 
+(look up parameters at [http://spatialreference.org](http://spatialreference.org))
+```{r}
 crs.laea <- CRS("+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs") # Lambert Azimuthal Equal Area
 locs.laea <- spTransform(locs, crs.laea)    # spTransform makes the projection
+```
 
-# Projecting shapefile of countries
+<br>
+
+### Projecting shapefile of countries
+```{r}
 plot(countriesLow)    # countries map in geographical projection
 country.laea <- spTransform(countriesLow, crs.laea)  # project
+```
 
-# Plotting
+Let's plot this:
+```{r}
 plot(locs.laea, pch=20, col="steelblue")
 plot(country.laea, add=T)
+
 # define spatial limits for plotting
 plot(locs.laea, pch=20, col="steelblue", xlim=c(1800000, 3900000), ylim=c(1000000, 3000000))
 plot(country.laea, add=T)
@@ -365,62 +623,66 @@ plot(country.laea, add=T)
 
 
 
-OVERLAY
--------
+<br>
+[Back to Contents](#contents)
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-Get number of occurrences (points) by country
+
+
+
+
+
+
+4. USING RASTER (GRID) DATA <a name="raster"></a>
+===========================
+
+
+<br>
+
+### Downloading raster climate data from internet <a name="getdata"></a>
+The `getData` function from the `dismo` package will easily retrieve climate data, elevation, administrative boundaries, etc. Check also the excellent [rWBclimate package](http://ropensci.org/packages/rwbclimate.html) by rOpenSci with additional functionality. 
+
 ```{r}
-ov <- overlay(locs.laea, country.laea)
-countr <- country.laea@data$NAME[ov]
-summary(countr)
-
-
-
-
+tmin <- getData("worldclim", var="tmin", res=10)   # this will download 
+  # global data on minimum temperature at 10' resolution
 ```
 
+<br>
 
-
-
-
-
-USING RASTER (GRID) DATA
-========================
-
-
-
-DOWNLOADING RASTER CLIMATE DATA FROM INTERNET
----------------------------------------------
+### Loading a raster layer <a name="loadraster"></a>
 
 ```{r}
-tmin <- getData("worldclim", var="tmin", res=10)   # this will download global data on minimum temperature at 10' resolution
-# with this function you can also get other climatic data, elevation, administrative boundaries, etc
+tmin1 <- raster(paste(getwd(), "/wc10/tmin1.bil", sep=""))   # Tmin for January
+```
+Easy! The `raster` function reads many different formats, including Arc ASCII grids or netcdf files (see raster help). And values are stored on disk instead of memory! (useful for large rasters) 
+```{r}
+fromDisk(tmin1)
 ```
 
-
-LOADING A RASTER LAYER
-----------------------
-
+Let's examine the raster layer:
 ```{r}
-tmin1 <- raster("~/UsingR-GIS/wc10/tmin1.bil")   # Tmin for January
-fromDisk(tmin1)  # values are stored on disk instead of memory! (useful for large rasters)
 tmin1 <- tmin1/10    # Worldclim temperature data come in decimal degrees 
 tmin1    # look at the info
 plot(tmin1)
-
-# ?raster    # raster reads many different formats, including Arc ASCII grids or netcdf files
 ```
 
+<br>
 
-CREATING A RASTER STACK
------------------------
+### Creating a raster stack <a name="rasterstack"></a>
 
-A raster stack is collection of many raster layers with the same projection, spatial extent and resolution
+A raster stack is collection of many raster layers with the same projection, spatial extent and resolution.
+Let's collect several raster files from disk and read them as a single raster stack:
 
 ```{r message=FALSE, warning=FALSE}
 
 library(gtools)
-list.ras <- mixedsort(list.files("~/UsingR-GIS/wc10/", full.names=T, pattern=".bil"))
+file.remove(paste(getwd(), "/wc10/", "tmin_10m_bil.zip", sep=""))
+list.ras <- mixedsort(list.files(paste(getwd(), "/wc10/", sep=""), full.names=T, pattern=".bil"))
 list.ras   # I have just collected a list of the files containing monthly temperature values
 tmin.all <- stack(list.ras)
 tmin.all
@@ -429,32 +691,31 @@ plot(tmin.all)
 ```
 
 
-RASTER BRICKS
--------------
+<br>
 
-A rasterbrick is similar to a raster stack (i.e. multiple layers with the same extent and resolution),
-but all the data must be stored in a single file
+### Raster bricks <a name="rasterbrick"></a>
+
+A rasterbrick is similar to a raster stack (i.e. multiple layers with the same extent and resolution), but all the data must be stored in a single file on disk.
 
 ```{r}
 tmin.brick <- brick(tmin.all)   # creates rasterbrick
 ```
 
+<br>
 
+### Crop rasters <a name="cropraster"></a>
 
-CROP RASTERS
-------------
+Crop raster manually (drawing region of interest):
 
 ```{r eval=FALSE}
-
-## Crop raster manually:
 plot(tmin1)
 newext <- drawExtent()    # click twice on the map to select the region of interest
 tmin1.c <- crop(tmin1, newext)
 plot(tmin1.c)
 ```
 
+Alternatively, provide coordinates for the limits of the region of interest:
 ```{r}
-## Alternatively, provide coordinates for the limits of the region of interest
 newext <- c(-10, 10, 30, 50)   
 tmin1.c <- crop(tmin1, newext)
 plot(tmin1.c)
@@ -463,29 +724,32 @@ tmin.all.c <- crop(tmin.all, newext)
 plot(tmin.all.c)
 ```
 
+<br>
 
-DEFINE SPATIAL PROJECTION OF THE RASTERS
-----------------------------------------
+### Define spatial projection of the rasters <a name="projectionraster"></a>
 
 ```{r}
 crs.geo    # defined above
 projection(tmin1.c) <- crs.geo
 projection(tmin.all.c) <- crs.geo
 tmin1.c    # notice info at coord.ref.
+```
 
+<br>
 
-### CHANGING PROJECTION
+### Changing projection <a name="changeprojraster"></a>
 
-tmin1.proj <- projectRaster(tmin1.c, crs="+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378137 +b=6378137 +units=m +no_defs")
+Use `projectRaster` function:
+```{r}
+tmin1.proj <- projectRaster(tmin1.c, crs="+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378137 +b=6378137 +units=m +no_defs")   # can also use a template raster, see ?projectRaster
 tmin1.proj   # notice info at coord.ref.
 plot(tmin1.proj)
-# can also use a template raster, see ?projectRaster
 ```
 
 
+<br>
 
-PLOTTING RASTER DATA
---------------------
+### Plotting raster data <a name="plotraster"></a>
 
 Different plotting functions:
 ```{r}
@@ -495,15 +759,13 @@ persp(tmin1.c)
 contour(tmin1.c)
 contourplot(tmin1.c)
 levelplot(tmin1.c)
-plot3D(tmin1.c)
+#plot3D(tmin1.c)
 bwplot(tmin.all.c)
 densityplot(tmin1.c)
 ```
 
 
-
-Spatial autocorrelation
------------------------
+### Spatial autocorrelation <a name="autocorrelation"></a>
 
 ```{r}
 Moran(tmin1.c)    # global Moran's I
@@ -512,42 +774,44 @@ plot(tmin1.Moran)
 ```
 
 
-EXTRACT VALUES FROM RASTER
---------------------------
+### Extract values from raster <a name="extract"></a>
 
+Use `extract` function:
 ```{r}
 head(locs)    # we'll obtain tmin values for our points
 projection(tmin1) <- crs.geo
-locs$tmin1 <- extract(tmin1, locs)    # raster values are incorporated to the dataframe
+locs$tmin1 <- extract(tmin1, locs)    # raster values 
+  # are incorporated to the dataframe
 head(locs)
 ```
 
+You can also extract values for a given region instead of the whole raster:
 ```{r eval=FALSE}
-# extract values for a given region
 plot(tmin1.c)
-reg.clim <- extract(tmin1.c, drawExtent())  # click twice to draw extent of the region of interest 
+reg.clim <- extract(tmin1.c, drawExtent())  # click twice to 
+  # draw extent of the region of interest 
 summary(reg.clim)
 ```
 
+Using `rasterToPoints`:
 ```{r}
 # rasterToPoints
 tminvals <- rasterToPoints(tmin1.c)
 head(tminvals)
 ```
 
+And also, the `click` function will get values from particular locations in the map
 ```{r eval=FALSE}
-## CLICK function: get values from particular locations in the map
 plot(tmin1.c)
-click(tmin1.c, n=3)   # click n times in the map 
+click(tmin1.c, n=3)   # click n times in the map to get values
 ```
 
+<br>
 
-
-RASTERIZE POINTS, LINES OR POLYGONS
------------------------------------
+### Rasterize points, lines or polygons <a name="rasterize"></a>
 
 ```{r}
-locs2ras <- rasterize(locs.gb, tmin1)
+locs2ras <- rasterize(locs.gb, tmin1, field=rep(1,nrow(locs.gb)))
 locs2ras
 plot(locs2ras, xlim=c(-10,10), ylim=c(45, 60), legend=F)
 data(wrld_simpl)
@@ -555,9 +819,11 @@ plot(wrld_simpl, add=T)
 ```
 
 
-CHANGING RASTER RESOLUTION (aggregate)
---------------------------------------
+<br>
 
+### Changing raster resolution <a name="resolution"></a>
+
+Use `aggregate` function:
 ```{r}
 tmin1.lowres <- aggregate(tmin1.c, fact=2, fun=mean)
 tmin1.lowres
@@ -568,8 +834,7 @@ plot(tmin1.lowres, main="low resolution")
 ```
 
 
-SPLINE INTERPOLATION
---------------------
+### Spline interpolation <a name="interpolation"></a>
 
 ```{r message=FALSE, warning=FALSE}
 xy <- data.frame(xyFromCell(tmin1.lowres, 1:ncell(tmin1.lowres)))    # get raster cell coordinates
@@ -585,23 +850,23 @@ plot(intras)
 title("Interpolated raster")
 ```
 
+### Setting all rasters to the same extent, projection and resolution all in one <a name="spatialsync"></a>
 
-SETTING ALL RASTERS TO THE SAME EXTENT, PROJECTION AND RESOLUTION ALL IN ONE
-----------------------------------------------------------------------------
+See `spatial_sync_raster` function from `spatial.tools` package.
 
-```{r message=FALSE, eval=F}
-library(climstats)
-spatial_sync_raster
-```
+<br>
 
 
+### Elevations, slope, aspect, etc <a name="elevation"></a>
 
-ELEVATIONS, SLOPE, ASPECT, ETC
-------------------------------
-
+<br>
 Download elevation data from internet:
 ```{r}
 elevation <- getData('alt', country='ESP')
+```
+
+Some quick maps:
+```{r}
 x <- terrain(elevation, opt=c('slope', 'aspect'), unit='degrees')
 plot(x)
 
@@ -613,47 +878,53 @@ plot(elevation, col=rainbow(25, alpha=0.35), add=TRUE)
 ```
 
 
+### Saving and exporting raster data <a name="saveraster"></a>
 
-SAVING AND EXPORTING RASTER DATA
---------------------------------
 
 Saving raster to file:
-----------------------
+
 ```{r}
-writeRaster(tmin1.c, filename="tmin1.c.grd")   # can export to many different file types, see help
+writeRaster(tmin1.c, filename="tmin1.c.grd")   
 writeRaster(tmin.all.c, filename="tmin.all.grd")
 ```
+`writeRaster` can export to many different file types, see help.
+
+<br>
 
 Exporting to KML (Google Earth)
--------------------------------
 ```{r}
 tmin1.c <- raster(tmin.all.c, 1)
 KML(tmin1.c, file="tmin1.kml")  
 KML(tmin.all.c)     # can export multiple layers
 
-
 ```
 
+<br>
+[Back to Contents](#contents)
+<br>
+<br>
+<br>
+<br>
 
+5. SPATIAL STATISTICS (just a glance) <a name="spatstats"></a>
+=====================================
 
-SPATIAL STATISTICS
-==================
+<br>
 
+### Point pattern analysis <a name="pointpatterns"></a>
 
-Point pattern analysis
-----------------------
-
-
-Useful packages:
+Some useful packages:
 
 ```{r message=FALSE}
 library(spatial)
 library(spatstat)
 library(spatgraphs)
 library(ecespa)    # ecological focus
-# etc (see Spatial Task View: http://cran.r-project.org/web/views/Spatial.html)
+```
+See [CRAN Spatial Task View](http://cran.r-project.org/web/views/Spatial.html).
 
-# Example: Ripley's K
+Let's do a quick example with Ripley's K function:
+```{r}
 data(fig1)
 plot(fig1)    # point pattern
 data(Helianthemum)
@@ -664,26 +935,30 @@ plot(cosa12$k1k2, lty=c(2, 1, 2), col=c(2, 1, 2), xlim=c(0, 200),
 
 ```
 
+<br>
 
-Geostatistics
--------------
+### Geostatistics <a name="geostatistics"></a>
 
-Useful packages:
+Some useful packages:
 
 ```{r message=FALSE, eval=FALSE}
 library(gstat)
 library(geoR)
 library(akima)   # for spline interpolation
-# etc (see Spatial Task View)
-
 library(spdep)   # dealing with spatial dependence
-
 ```
+See [CRAN Spatial Task View](http://cran.r-project.org/web/views/Spatial.html).
 
 
+<br>
+[Back to Contents](#contents)
+<br>
+<br>
+<br>
+<br>
 
-INTERACTING AND COMMUNICATING WITH OTHER GIS
-============================================
+6. INTERACTING WITH OTHER GIS <a name="othergis"></a>
+===============================================
 
 ```{r message=F, eval=F}
 library(spgrass6)   # GRASS
@@ -693,9 +968,16 @@ library(spsextante) # Sextante
 
 ```
 
+<br>
+[Back to Contents](#contents)
+<br>
+<br>
+<br>
+<br>
 
-Other useful packages
-=====================
+
+7. OTHER USEFUL PACKAGES <a name="otherpackages"></a>
+=========================
 
 ```{r message=FALSE, eval=FALSE}
 library(Metadata)    # automatically collates data from online GIS datasets (land cover, pop density, etc) for a given set of coordinates
@@ -712,7 +994,6 @@ library(rangeMapper)    # plotting species distributions, richness and traits
 
 # Species Distribution Modelling
 library(dismo)
-library(BIOMOD)
 library(biomod2)
 library(SDMTools)
 
@@ -720,32 +1001,54 @@ library(BioCalc)   # computes 19 bioclimatic variables from monthly climatic val
 
 ```
 
+<br>
+[Back to Contents](#contents)
+<br>
+<br>
+<br>
+<br>
+
+8. TO LEARN MORE <a name="tolearnmore"></a>
+================
+
+* [ASDAR book](http://www.asdar-book.org/)
+
+* Packages help and vignettes, especially
+
+    http://cran.r-project.org/web/packages/raster/vignettes/Raster.pdf   
+    http://cran.r-project.org/web/packages/dismo/vignettes/sdm.pdf   
+    http://cran.r-project.org/web/packages/sp/vignettes/sp.pdf   
+
+* [CRAN Task View: Analysis of Spatial Data](http://cran.r-project.org/web/views/Spatial.html)
 
 
+* [Introduction to Spatial Data and ggplot2](http://rpubs.com/RobinLovelace/intro-spatial)
 
-To learn more
-=============
+* [R spatial tips](http://spatial.ly/category/r-spatial-data-hints/)
 
-Packages help and vignettes, especially
+* [R wiki: tips for spatial data](http://rwiki.sciviews.org/doku.php?id=tips:spatial-data&s=spatial)
 
-http://cran.r-project.org/web/packages/raster/vignettes/Raster.pdf   
-http://cran.r-project.org/web/packages/dismo/vignettes/sdm.pdf   
-http://cran.r-project.org/web/packages/sp/vignettes/sp.pdf   
+* [Spatial analysis in R](http://www.maths.lancs.ac.uk/~rowlings/Teaching/Sheffield2013/index.html)
 
-CRAN Task View: Analysis of Spatial Data
-http://cran.r-project.org/web/views/Spatial.html
+* [Displaying time series, spatial and space-time data with R](http://oscarperpinan.github.io/spacetime-vis/)
 
-R-SIG-Geo mailing list
-https://stat.ethz.ch/mailman/listinfo/R-SIG-Geo
+* [Notes on Spatial Data Operations in R](https://dl.dropboxusercontent.com/u/9577903/broomspatial.pdf)
 
-R wiki: tips for spatial data
-http://rwiki.sciviews.org/doku.php?id=tips:spatial-data&s=spatial
+* [Analysing spatial point patterns in R](http://www.csiro.au/resources/pf16h)
 
-book
-http://www.asdar-book.org/  
+* [Spatial data in R](http://science.nature.nps.gov/im/datamgmt/statistics/r/advanced/Spatial.cfm)
 
-R spatial tips: http://spatialanalysis.co.uk/r/   
-  
-http://spatial-analyst.net   
+* [NCEAS Geospatial use cases](http://www.nceas.ucsb.edu/scicomp/usecases)
 
+* [Spatial Analyst](http://spatial-analyst.net)
 
+* [Making maps with R](http://www.molecularecologist.com/2012/09/making-maps-with-r/)
+
+* [R-SIG-Geo mailing list](https://stat.ethz.ch/mailman/listinfo/R-SIG-Geo)
+
+<br>
+[Back to Contents](#contents)
+<br>
+<br>
+<br>
+<br>
