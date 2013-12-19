@@ -189,7 +189,7 @@ hljs.initHighlightingOnLoad();
 
 <p>18-12-2013 </p>
 
-<p>Check out latest version at <a href="http://pakillo.github.io/R-GIS-tutorial">http://pakillo.github.io/R-GIS-tutorial</a></p>
+<p>Check out code and latest version at <a href="https://github.com/Pakillo/R-GIS-tutorial/blob/master/R-GIS_tutorial.md">GitHub</a></p>
 
 <p><br>
 <br>
@@ -413,14 +413,14 @@ plot(Geo)
 
 <!-- GeoMap generated in R 3.0.2 by googleVis 0.4.7 package -->
 
-<!-- Wed Dec 18 15:07:26 2013 -->
+<!-- Thu Dec 19 12:27:31 2013 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoMapID1bac261f1d56 () {
+function gvisDataGeoMapIDb083e32714a () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -472,15 +472,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoMapID1bac261f1d56() {
-var data = gvisDataGeoMapID1bac261f1d56();
+function drawChartGeoMapIDb083e32714a() {
+var data = gvisDataGeoMapIDb083e32714a();
 var options = {};
 options["dataMode"] = "regions";
 options["width"] =    556;
 options["height"] =    400;
 
     var chart = new google.visualization.GeoMap(
-    document.getElementById('GeoMapID1bac261f1d56')
+    document.getElementById('GeoMapIDb083e32714a')
     );
     chart.draw(data,options);
     
@@ -504,9 +504,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoMapID1bac261f1d56);
+callbacks.push(drawChartGeoMapIDb083e32714a);
 })();
-function displayChartGeoMapID1bac261f1d56() {
+function displayChartGeoMapIDb083e32714a() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -532,12 +532,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoMapID1bac261f1d56"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoMapIDb083e32714a"></script>
  
 
 <!-- divChart -->
 
-<div id="GeoMapID1bac261f1d56"
+<div id="GeoMapIDb083e32714a"
   style="width: 556px; height: 400px;">
 </div>
 
@@ -556,14 +556,14 @@ plot(M1)
 
 <!-- Map generated in R 3.0.2 by googleVis 0.4.7 package -->
 
-<!-- Wed Dec 18 15:07:27 2013 -->
+<!-- Thu Dec 19 12:27:31 2013 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMapID1bac5034eab () {
+function gvisDataMapIDb08491aa1 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -811,8 +811,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMapID1bac5034eab() {
-var data = gvisDataMapID1bac5034eab();
+function drawChartMapIDb08491aa1() {
+var data = gvisDataMapIDb08491aa1();
 var options = {};
 options["showTip"] = true;
 options["showLine"] = false;
@@ -823,7 +823,7 @@ options["width"] =    800;
 options["height"] =    400;
 
     var chart = new google.visualization.Map(
-    document.getElementById('MapID1bac5034eab')
+    document.getElementById('MapIDb08491aa1')
     );
     chart.draw(data,options);
     
@@ -847,9 +847,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMapID1bac5034eab);
+callbacks.push(drawChartMapIDb08491aa1);
 })();
-function displayChartMapID1bac5034eab() {
+function displayChartMapIDb08491aa1() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -875,12 +875,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMapID1bac5034eab"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMapIDb08491aa1"></script>
  
 
 <!-- divChart -->
 
-<div id="MapID1bac5034eab"
+<div id="MapIDb08491aa1"
   style="width: 800px; height: 400px;">
 </div>
 
@@ -952,13 +952,13 @@ locs &lt;- subset(laurus, select = c(&quot;country&quot;, &quot;lat&quot;, &quot
 head(locs)  # a simple data frame with coordinates
 </code></pre>
 
-<pre><code>##   country   lat   lon
-## 1  Israel 33.25 35.68
-## 2  Israel 33.25 35.65
-## 3  Israel 33.00 35.25
-## 4  Israel 33.25 35.65
-## 5  Israel 33.25 35.68
-## 6  Israel 33.25 35.65
+<pre><code>##   country   lat    lon
+## 1   Spain 36.12 -5.579
+## 2   Spain 38.26 -5.207
+## 3   Spain 36.11 -5.534
+## 4   Spain 36.87 -5.312
+## 5   Spain 37.30 -1.918
+## 6   Spain 36.10 -5.545
 </code></pre>
 
 <pre><code class="r">
@@ -1143,45 +1143,455 @@ plot(map.gb)
 
 <!-- Map generated in R 3.0.2 by googleVis 0.4.7 package -->
 
-<!-- Wed Dec 18 15:08:07 2013 -->
+<!-- Thu Dec 19 12:28:17 2013 -->
 
 <!-- jsHeader -->
 
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMapID1bac2b6727f3 () {
+function gvisDataMapIDb085424efa () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
  [
- 50.36823,
--4.461068,
+ 53.798363,
+-0.25377846,
+"United Kingdom" 
+],
+[
+ 53.800476,
+-0.40555596,
+"United Kingdom" 
+],
+[
+ 53.41154,
+-2.9779854,
+"United Kingdom" 
+],
+[
+ 53.412884,
+-2.7974555,
+"United Kingdom" 
+],
+[
+ 53.430862,
+-2.797792,
+"United Kingdom" 
+],
+[
+ 53.412884,
+-2.7974555,
+"United Kingdom" 
+],
+[
+ 50.66304,
+-1.5047381,
+"United Kingdom" 
+],
+[
+ 50.66046,
+-1.0802728,
+"United Kingdom" 
+],
+[
+ 51.287277,
+-0.7809699,
+"United Kingdom" 
+],
+[
+ 50.75039,
+-1.0785117,
+"United Kingdom" 
+],
+[
+ 50.257538,
+-5.297342,
+"United Kingdom" 
+],
+[
+ 50.66046,
+-1.0802728,
+"United Kingdom" 
+],
+[
+ 51.967426,
+1.2758358,
+"United Kingdom" 
+],
+[
+ 50.175335,
+-5.011484,
+"United Kingdom" 
+],
+[
+ 51.194042,
+-3.502832,
+"United Kingdom" 
+],
+[
+ 52.962803,
+1.0527366,
 "United Kingdom" 
 ],
 [
  51.46179,
--3.6555827,
+-0.34441733,
 "United Kingdom" 
 ],
 [
- 51.3756,
--3.3650715,
+ 52.672245,
+1.7722985,
 "United Kingdom" 
 ],
 [
- 51.359573,
-0.3701853,
+ 50.752285,
+-1.3620236,
 "United Kingdom" 
 ],
 [
- 54.326843,
--4.383782,
+ 51.194042,
+-3.502832,
 "United Kingdom" 
 ],
 [
- 51.46179,
--3.6555827,
+ 51.28868,
+-3.0756438,
+"United Kingdom" 
+],
+[
+ 51.651524,
+-2.6505208,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-1.2202638,
+"United Kingdom" 
+],
+[
+ 52.057198,
+1.282405,
+"United Kingdom" 
+],
+[
+ 50.752285,
+-1.3620236,
+"United Kingdom" 
+],
+[
+ 50.66149,
+-1.2217541,
+"United Kingdom" 
+],
+[
+ 52.06857,
+0.8453797,
+"United Kingdom" 
+],
+[
+ 50.75039,
+-2.9214883,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-1.2202638,
+"United Kingdom" 
+],
+[
+ 50.66149,
+-1.2217541,
+"United Kingdom" 
+],
+[
+ 50.175335,
+-5.011484,
+"United Kingdom" 
+],
+[
+ 51.194042,
+-3.502832,
+"United Kingdom" 
+],
+[
+ 50.293114,
+-3.6146727,
+"United Kingdom" 
+],
+[
+ 52.4974,
+1.6098989,
+"United Kingdom" 
+],
+[
+ 51.18774,
+-0.06802027,
+"United Kingdom" 
+],
+[
+ 52.440582,
+0.2806388,
+"United Kingdom" 
+],
+[
+ 50.66304,
+-1.5047381,
+"United Kingdom" 
+],
+[
+ 50.571564,
+-1.2232367,
+"United Kingdom" 
+],
+[
+ 50.159473,
+-5.570697,
+"United Kingdom" 
+],
+[
+ 51.194042,
+-3.502832,
+"United Kingdom" 
+],
+[
+ 54.25755,
+-2.8443713,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-1.2202638,
+"United Kingdom" 
+],
+[
+ 50.84135,
+-2.781234,
+"United Kingdom" 
+],
+[
+ 50.571564,
+-1.2232367,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-1.2202638,
+"United Kingdom" 
+],
+[
+ 50.84135,
+-1.218766,
+"United Kingdom" 
+],
+[
+ 50.84135,
+-1.218766,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-1.2202638,
+"United Kingdom" 
+],
+[
+ 52.40767,
+1.6025597,
+"United Kingdom" 
+],
+[
+ 50.83772,
+-0.7927215,
+"United Kingdom" 
+],
+[
+ 50.159473,
+-5.570697,
+"United Kingdom" 
+],
+[
+ 51.96329,
+1.4211539,
+"United Kingdom" 
+],
+[
+ 50.752285,
+-1.3620236,
+"United Kingdom" 
+],
+[
+ 50.069702,
+-5.5640182,
+"United Kingdom" 
+],
+[
+ 50.75039,
+-1.0785117,
+"United Kingdom" 
+],
+[
+ 50.65634,
+-3.344112,
+"United Kingdom" 
+],
+[
+ 51.108856,
+-3.0714636,
+"United Kingdom" 
+],
+[
+ 50.75039,
+-1.0785117,
+"United Kingdom" 
+],
+[
+ 53.376064,
+-2.9170372,
+"United Kingdom" 
+],
+[
+ 53.376293,
+-2.8869743,
+"United Kingdom" 
+],
+[
+ 52.55246,
+-1.926249,
+"United Kingdom" 
+],
+[
+ 53.358746,
+-1.1735004,
+"United Kingdom" 
+],
+[
+ 53.358746,
+-1.1735004,
+"United Kingdom" 
+],
+[
+ 53.358746,
+-1.1735004,
+"United Kingdom" 
+],
+[
+ 53.358746,
+-1.1735004,
+"United Kingdom" 
+],
+[
+ 51.74144,
+-1.3481886,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 50.069702,
+-5.5640182,
+"United Kingdom" 
+],
+[
+ 50.933704,
+-1.7865157,
+"United Kingdom" 
+],
+[
+ 50.75039,
+-2.9214883,
+"United Kingdom" 
+],
+[
+ 51.561604,
+-2.6492372,
+"United Kingdom" 
+],
+[
+ 51.108856,
+-3.0714636,
+"United Kingdom" 
+],
+[
+ 50.652733,
+-3.6269717,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 54.618816,
+-2.5420728,
+"United Kingdom" 
+],
+[
+ 52.012802,
+-2.2185814,
+"United Kingdom" 
+],
+[
+ 51.471687,
+-2.64796,
+"United Kingdom" 
+],
+[
+ 50.83772,
+-0.7927215,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-2.7797363,
+"United Kingdom" 
+],
+[
+ 50.463715,
+-4.1841645,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 49.956474,
+-6.2530303,
+"United Kingdom" 
+],
+[
+ 50.383022,
+-3.6177242,
+"United Kingdom" 
+],
+[
+ 53.24907,
+-4.323423,
+"United Kingdom" 
+],
+[
+ 51.20192,
+-2.6441677,
+"United Kingdom" 
+],
+[
+ 51.892365,
+-4.6888576,
 "United Kingdom" 
 ],
 [
@@ -1190,13 +1600,93 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 51.192116,
--0.35410187,
+ 50.257538,
+-5.297342,
 "United Kingdom" 
 ],
 [
- 50.75039,
--1.0785117,
+ 51.194042,
+-3.502832,
+"United Kingdom" 
+],
+[
+ 51.547245,
+-3.947173,
+"United Kingdom" 
+],
+[
+ 54.326843,
+-4.383782,
+"United Kingdom" 
+],
+[
+ 50.2721,
+-4.7368417,
+"United Kingdom" 
+],
+[
+ 50.83772,
+-0.7927215,
+"United Kingdom" 
+],
+[
+ 51.289913,
+-2.9322464,
+"United Kingdom" 
+],
+[
+ 50.84135,
+-2.781234,
+"United Kingdom" 
+],
+[
+ 50.650673,
+-3.7683785,
+"United Kingdom" 
+],
+[
+ 50.753834,
+-1.7873349,
+"United Kingdom" 
+],
+[
+ 50.933704,
+-2.2134843,
+"United Kingdom" 
+],
+[
+ 50.2721,
+-4.7368417,
+"United Kingdom" 
+],
+[
+ 50.65634,
+-3.344112,
+"United Kingdom" 
+],
+[
+ 51.097862,
+-0.07176985,
+"United Kingdom" 
+],
+[
+ 52.641262,
+-2.5173035,
+"United Kingdom" 
+],
+[
+ 50.663555,
+-2.353762,
+"United Kingdom" 
+],
+[
+ 50.753834,
+-2.212665,
+"United Kingdom" 
+],
+[
+ 51.3719,
+-0.3476622,
 "United Kingdom" 
 ],
 [
@@ -1210,28 +1700,28 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.361942,
--4.742008,
+ 51.365032,
+0.08310807,
 "United Kingdom" 
 ],
 [
- 50.538197,
--4.893384,
+ 51.996586,
+-3.9666135,
 "United Kingdom" 
 ],
 [
- 50.751423,
--2.7797363,
+ 51.18774,
+-0.06802027,
 "United Kingdom" 
 ],
 [
- 50.83772,
--0.7927215,
+ 51.46179,
+-3.6555827,
 "United Kingdom" 
 ],
 [
- 51.459667,
--0.20052691,
+ 50.84377,
+-1.7869264,
 "United Kingdom" 
 ],
 [
@@ -1250,128 +1740,8 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 53.24907,
--4.323423,
-"United Kingdom" 
-],
-[
- 54.618816,
--2.5420728,
-"United Kingdom" 
-],
-[
- 50.37877,
--3.8989153,
-"United Kingdom" 
-],
-[
- 50.159473,
--5.570697,
-"United Kingdom" 
-],
-[
- 50.933704,
--2.2134843,
-"United Kingdom" 
-],
-[
- 51.097862,
--0.07176985,
-"United Kingdom" 
-],
-[
- 52.012802,
--2.2185814,
-"United Kingdom" 
-],
-[
- 50.92434,
--3.494124,
-"United Kingdom" 
-],
-[
- 50.66304,
--2.495262,
-"United Kingdom" 
-],
-[
- 51.471687,
--2.64796,
-"United Kingdom" 
-],
-[
- 50.65462,
--3.485549,
-"United Kingdom" 
-],
-[
- 51.631958,
-0.23983838,
-"United Kingdom" 
-],
-[
- 50.933704,
--2.2134843,
-"United Kingdom" 
-],
-[
- 50.751423,
--2.7797363,
-"United Kingdom" 
-],
-[
- 50.754005,
--2.0708885,
-"United Kingdom" 
-],
-[
- 50.933876,
--1.9288384,
-"United Kingdom" 
-],
-[
- 51.471687,
--2.64796,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 51.74144,
--1.3481886,
-"United Kingdom" 
-],
-[
- 50.663555,
--2.353762,
-"United Kingdom" 
-],
-[
- 53.358746,
--1.1735004,
-"United Kingdom" 
-],
-[
- 50.383022,
--3.6177242,
-"United Kingdom" 
-],
-[
- 51.452248,
-0.23102868,
+ 50.201176,
+-3.7517123,
 "United Kingdom" 
 ],
 [
@@ -1380,28 +1750,13 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.662354,
--2.6367571,
+ 50.07794,
+-5.2849946,
 "United Kingdom" 
 ],
 [
- 50.83772,
--3.2072785,
-"United Kingdom" 
-],
-[
- 50.66149,
--2.778246,
-"United Kingdom" 
-],
-[
- 50.74453,
--3.4883928,
-"United Kingdom" 
-],
-[
- 51.54476,
--4.091308,
+ 51.46179,
+-3.6555827,
 "United Kingdom" 
 ],
 [
@@ -1410,33 +1765,73 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 52.10109,
--1.3429587,
+ 52.816986,
+-3.112988,
 "United Kingdom" 
 ],
 [
- 51.289913,
--2.9322464,
+ 50.75039,
+-1.0785117,
 "United Kingdom" 
 ],
 [
- 52.641262,
--2.5173035,
+ 50.66407,
+-2.070753,
 "United Kingdom" 
 ],
 [
- 51.108856,
--3.0714636,
+ 51.721813,
+-4.2442775,
 "United Kingdom" 
 ],
 [
- 50.752285,
--1.3620236,
+ 51.54476,
+-4.091308,
 "United Kingdom" 
 ],
 [
- 50.38098,
--3.7583282,
+ 51.194042,
+-3.502832,
+"United Kingdom" 
+],
+[
+ 51.46179,
+-3.6555827,
+"United Kingdom" 
+],
+[
+ 50.57413,
+-1.9293817,
+"United Kingdom" 
+],
+[
+ 50.159473,
+-5.570697,
+"United Kingdom" 
+],
+[
+ 50.84135,
+-1.218766,
+"United Kingdom" 
+],
+[
+ 50.38489,
+-3.4771044,
+"United Kingdom" 
+],
+[
+ 50.56283,
+-3.6238735,
+"United Kingdom" 
+],
+[
+ 50.47088,
+-3.7616613,
+"United Kingdom" 
+],
+[
+ 51.112694,
+-2.500053,
 "United Kingdom" 
 ],
 [
@@ -1450,93 +1845,23 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.75349,
--2.3544395,
+ 50.371117,
+-4.320562,
 "United Kingdom" 
 ],
 [
- 51.996586,
--3.9666135,
+ 53.358746,
+-1.1735004,
 "United Kingdom" 
 ],
 [
- 52.10272,
--2.2190206,
+ 52.10109,
+-1.3429587,
 "United Kingdom" 
 ],
 [
- 52.816986,
--3.112988,
-"United Kingdom" 
-],
-[
- 52.4031,
-1.7492679,
-"United Kingdom" 
-],
-[
- 50.753834,
--2.212665,
-"United Kingdom" 
-],
-[
- 50.2721,
--4.7368417,
-"United Kingdom" 
-],
-[
- 50.832535,
--0.366784,
-"United Kingdom" 
-],
-[
- 53.349102,
--3.7278032,
-"United Kingdom" 
-],
-[
- 50.081814,
--5.145436,
-"United Kingdom" 
-],
-[
- 50.175335,
--5.011484,
-"United Kingdom" 
-],
-[
- 51.46179,
--0.34441733,
-"United Kingdom" 
-],
-[
- 50.65634,
--3.344112,
-"United Kingdom" 
-],
-[
- 51.20192,
--2.6441677,
-"United Kingdom" 
-],
-[
- 50.84377,
--1.7869264,
-"United Kingdom" 
-],
-[
- 50.84135,
--2.781234,
-"United Kingdom" 
-],
-[
- 49.956474,
--6.2530303,
-"United Kingdom" 
-],
-[
- 51.54476,
--4.091308,
+ 51.631958,
+0.23983838,
 "United Kingdom" 
 ],
 [
@@ -1545,108 +1870,28 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.463715,
--4.1841645,
+ 50.175335,
+-5.011484,
 "United Kingdom" 
 ],
 [
- 51.380886,
--2.7903848,
+ 51.192116,
+-0.35410187,
 "United Kingdom" 
 ],
 [
- 50.371117,
--4.320562,
+ 51.369785,
+-0.20405345,
 "United Kingdom" 
 ],
 [
- 49.956474,
--6.2530303,
+ 50.662354,
+-2.6367571,
 "United Kingdom" 
 ],
 [
- 50.933704,
--1.7865157,
-"United Kingdom" 
-],
-[
- 50.47088,
--3.7616613,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 53.24285,
--4.622895,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 51.721813,
--4.2442775,
-"United Kingdom" 
-],
-[
- 56.221188,
--4.016121,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 49.951286,
--6.3920474,
-"United Kingdom" 
-],
-[
- 50.466274,
--4.0433493,
-"United Kingdom" 
-],
-[
- 51.287277,
--0.7809699,
-"United Kingdom" 
-],
-[
- 50.84135,
--2.781234,
-"United Kingdom" 
-],
-[
- 51.46179,
--3.6555827,
-"United Kingdom" 
-],
-[
- 54.137306,
--4.8322535,
-"United Kingdom" 
-],
-[
- 50.57413,
--1.9293817,
-"United Kingdom" 
-],
-[
- 52.01118,
--1.3442764,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
+ 50.75349,
+-2.3544395,
 "United Kingdom" 
 ],
 [
@@ -1655,23 +1900,33 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 51.3719,
--0.3476622,
+ 50.752285,
+-1.3620236,
 "United Kingdom" 
 ],
 [
- 50.834435,
--0.50874895,
+ 50.753834,
+-1.7873349,
 "United Kingdom" 
 ],
 [
- 50.83772,
--0.7927215,
+ 51.287277,
+-0.7809699,
 "United Kingdom" 
 ],
 [
- 51.561604,
--2.6492372,
+ 50.463715,
+-4.1841645,
+"United Kingdom" 
+],
+[
+ 51.471687,
+-2.64796,
+"United Kingdom" 
+],
+[
+ 56.221188,
+-4.016121,
 "United Kingdom" 
 ],
 [
@@ -1680,43 +1935,33 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.069702,
--5.5640182,
+ 51.452248,
+0.23102868,
 "United Kingdom" 
 ],
 [
- 51.112694,
--2.500053,
+ 52.672245,
+1.7722985,
 "United Kingdom" 
 ],
 [
- 51.365032,
-0.08310807,
+ 50.83772,
+-3.2072785,
 "United Kingdom" 
 ],
 [
- 51.194042,
--3.502832,
+ 51.46179,
+-0.34441733,
 "United Kingdom" 
 ],
 [
- 50.75039,
--2.9214883,
+ 50.538197,
+-4.893384,
 "United Kingdom" 
 ],
 [
- 50.84135,
--1.218766,
-"United Kingdom" 
-],
-[
- 50.650673,
--3.7683785,
-"United Kingdom" 
-],
-[
- 51.194042,
--3.502832,
+ 50.474804,
+-3.4799051,
 "United Kingdom" 
 ],
 [
@@ -1730,53 +1975,23 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 51.3719,
--0.3476622,
+ 50.538197,
+-4.893384,
 "United Kingdom" 
 ],
 [
- 50.2721,
--4.7368417,
+ 50.92434,
+-3.494124,
 "United Kingdom" 
 ],
 [
- 50.463715,
--4.1841645,
+ 50.081814,
+-5.145436,
 "United Kingdom" 
 ],
 [
- 51.005547,
-0.066959515,
-"United Kingdom" 
-],
-[
- 50.83772,
--0.7927215,
-"United Kingdom" 
-],
-[
- 50.07794,
--5.2849946,
-"United Kingdom" 
-],
-[
- 50.66407,
--2.070753,
-"United Kingdom" 
-],
-[
- 50.652733,
--3.6269717,
-"United Kingdom" 
-],
-[
- 50.201176,
--3.7517123,
-"United Kingdom" 
-],
-[
- 52.672245,
-1.7722985,
+ 50.66304,
+-2.495262,
 "United Kingdom" 
 ],
 [
@@ -1785,98 +2000,8 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.38489,
--3.4771044,
-"United Kingdom" 
-],
-[
- 51.194042,
--3.502832,
-"United Kingdom" 
-],
-[
- 49.956474,
--6.2530303,
-"United Kingdom" 
-],
-[
- 51.892365,
--4.6888576,
-"United Kingdom" 
-],
-[
- 50.257538,
--5.297342,
-"United Kingdom" 
-],
-[
- 51.547245,
--3.947173,
-"United Kingdom" 
-],
-[
- 50.753834,
--1.7873349,
-"United Kingdom" 
-],
-[
- 51.383,
--2.3592803,
-"United Kingdom" 
-],
-[
- 51.892365,
--4.6888576,
-"United Kingdom" 
-],
-[
- 51.365032,
-0.08310807,
-"United Kingdom" 
-],
-[
- 51.547245,
--3.947173,
-"United Kingdom" 
-],
-[
- 50.265156,
--5.0171494,
-"United Kingdom" 
-],
-[
- 50.257538,
--5.297342,
-"United Kingdom" 
-],
-[
- 52.865036,
-1.3431085,
-"United Kingdom" 
-],
-[
- 50.753834,
--1.7873349,
-"United Kingdom" 
-],
-[
- 51.192116,
--3.645898,
-"United Kingdom" 
-],
-[
- 51.18774,
--0.06802027,
-"United Kingdom" 
-],
-[
- 50.56283,
--3.6238735,
-"United Kingdom" 
-],
-[
- 51.369785,
--0.20405345,
+ 50.84135,
+-2.781234,
 "United Kingdom" 
 ],
 [
@@ -1885,18 +2010,73 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.29108,
--3.7550118,
+ 50.751423,
+-2.7797363,
 "United Kingdom" 
 ],
 [
- 50.069702,
--5.5640182,
+ 51.547245,
+-3.947173,
 "United Kingdom" 
 ],
 [
- 50.474804,
--3.4799051,
+ 53.24285,
+-4.622895,
+"United Kingdom" 
+],
+[
+ 50.37877,
+-3.8989153,
+"United Kingdom" 
+],
+[
+ 50.257538,
+-5.297342,
+"United Kingdom" 
+],
+[
+ 54.137306,
+-4.8322535,
+"United Kingdom" 
+],
+[
+ 52.4031,
+1.7492679,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 51.359573,
+0.3701853,
+"United Kingdom" 
+],
+[
+ 50.933876,
+-1.9288384,
+"United Kingdom" 
+],
+[
+ 50.361942,
+-4.742008,
+"United Kingdom" 
+],
+[
+ 50.38098,
+-3.7583282,
+"United Kingdom" 
+],
+[
+ 52.01118,
+-1.3442764,
+"United Kingdom" 
+],
+[
+ 50.74453,
+-3.4883928,
 "United Kingdom" 
 ],
 [
@@ -1905,13 +2085,153 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 53.800476,
--0.40555596,
+ 51.380886,
+-2.7903848,
 "United Kingdom" 
 ],
 [
- 53.798363,
--0.25377846,
+ 51.365032,
+0.08310807,
+"United Kingdom" 
+],
+[
+ 49.956474,
+-6.2530303,
+"United Kingdom" 
+],
+[
+ 50.832535,
+-0.366784,
+"United Kingdom" 
+],
+[
+ 51.892365,
+-4.6888576,
+"United Kingdom" 
+],
+[
+ 51.194042,
+-3.502832,
+"United Kingdom" 
+],
+[
+ 50.069702,
+-5.5640182,
+"United Kingdom" 
+],
+[
+ 50.834435,
+-0.50874895,
+"United Kingdom" 
+],
+[
+ 53.349102,
+-3.7278032,
+"United Kingdom" 
+],
+[
+ 51.383,
+-2.3592803,
+"United Kingdom" 
+],
+[
+ 50.36823,
+-4.461068,
+"United Kingdom" 
+],
+[
+ 52.10272,
+-2.2190206,
+"United Kingdom" 
+],
+[
+ 52.865036,
+1.3431085,
+"United Kingdom" 
+],
+[
+ 51.005547,
+0.066959515,
+"United Kingdom" 
+],
+[
+ 50.933704,
+-2.2134843,
+"United Kingdom" 
+],
+[
+ 51.459667,
+-0.20052691,
+"United Kingdom" 
+],
+[
+ 51.3756,
+-3.3650715,
+"United Kingdom" 
+],
+[
+ 50.754005,
+-2.0708885,
+"United Kingdom" 
+],
+[
+ 50.29108,
+-3.7550118,
+"United Kingdom" 
+],
+[
+ 51.192116,
+-3.645898,
+"United Kingdom" 
+],
+[
+ 49.951286,
+-6.3920474,
+"United Kingdom" 
+],
+[
+ 51.3719,
+-0.3476622,
+"United Kingdom" 
+],
+[
+ 50.83772,
+-0.7927215,
+"United Kingdom" 
+],
+[
+ 50.265156,
+-5.0171494,
+"United Kingdom" 
+],
+[
+ 50.65462,
+-3.485549,
+"United Kingdom" 
+],
+[
+ 49.956474,
+-6.2530303,
+"United Kingdom" 
+],
+[
+ 51.54476,
+-4.091308,
+"United Kingdom" 
+],
+[
+ 50.66149,
+-2.778246,
+"United Kingdom" 
+],
+[
+ 50.466274,
+-4.0433493,
+"United Kingdom" 
+],
+[
+ 51.473278,
+-2.2159932,
 "United Kingdom" 
 ],
 [
@@ -1930,26 +2250,6 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 53.41154,
--2.9779854,
-"United Kingdom" 
-],
-[
- 53.412884,
--2.7974555,
-"United Kingdom" 
-],
-[
- 53.412884,
--2.7974555,
-"United Kingdom" 
-],
-[
- 53.430862,
--2.797792,
-"United Kingdom" 
-],
-[
  53.36045,
 -1.4740279,
 "United Kingdom" 
@@ -1985,68 +2285,13 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 52.057198,
-1.282405,
+ 51.907227,
+-0.3644342,
 "United Kingdom" 
 ],
 [
- 52.06857,
-0.8453797,
-"United Kingdom" 
-],
-[
- 51.96329,
-1.4211539,
-"United Kingdom" 
-],
-[
- 52.317932,
-1.5952591,
-"United Kingdom" 
-],
-[
- 51.967426,
-1.2758358,
-"United Kingdom" 
-],
-[
- 51.96329,
-1.4211539,
-"United Kingdom" 
-],
-[
- 52.317932,
-1.5952591,
-"United Kingdom" 
-],
-[
- 52.057198,
-1.282405,
-"United Kingdom" 
-],
-[
- 51.440693,
--2.5539896,
-"United Kingdom" 
-],
-[
- 51.422424,
--2.6113036,
-"United Kingdom" 
-],
-[
- 51.476223,
--2.6408238,
-"United Kingdom" 
-],
-[
- 51.413506,
--2.5968037,
-"United Kingdom" 
-],
-[
- 51.49352,
--2.7563155,
+ 51.742897,
+-0.19653699,
 "United Kingdom" 
 ],
 [
@@ -2055,8 +2300,18 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 51.369534,
--2.3519914,
+ 51.476223,
+-2.6408238,
+"United Kingdom" 
+],
+[
+ 51.493427,
+-2.7707202,
+"United Kingdom" 
+],
+[
+ 51.440556,
+-2.5827668,
 "United Kingdom" 
 ],
 [
@@ -2065,13 +2320,118 @@ var datajson =
 "United Kingdom" 
 ],
 [
+ 51.485054,
+-2.6697545,
+"United Kingdom" 
+],
+[
+ 51.440624,
+-2.5683782,
+"United Kingdom" 
+],
+[
+ 51.494434,
+-2.5978599,
+"United Kingdom" 
+],
+[
+ 51.367634,
+-2.7542398,
+"United Kingdom" 
+],
+[
+ 51.369534,
+-2.3519914,
+"United Kingdom" 
+],
+[
+ 51.369534,
+-2.3519914,
+"United Kingdom" 
+],
+[
+ 51.46753,
+-2.5831103,
+"United Kingdom" 
+],
+[
+ 51.440483,
+-2.5971553,
+"United Kingdom" 
+],
+[
  51.458317,
 -2.626178,
 "United Kingdom" 
 ],
 [
- 51.440556,
--2.5827668,
+ 51.485443,
+-2.5977423,
+"United Kingdom" 
+],
+[
+ 51.47645,
+-2.5976248,
+"United Kingdom" 
+],
+[
+ 51.49352,
+-2.7563155,
+"United Kingdom" 
+],
+[
+ 51.467457,
+-2.5975072,
+"United Kingdom" 
+],
+[
+ 51.47686,
+-2.5112252,
+"United Kingdom" 
+],
+[
+ 51.449818,
+-2.5253155,
+"United Kingdom" 
+],
+[
+ 51.438877,
+-2.856136,
+"United Kingdom" 
+],
+[
+ 51.422424,
+-2.6113036,
+"United Kingdom" 
+],
+[
+ 51.440693,
+-2.5539896,
+"United Kingdom" 
+],
+[
+ 51.494358,
+-2.6122653,
+"United Kingdom" 
+],
+[
+ 51.467384,
+-2.6119041,
+"United Kingdom" 
+],
+[
+ 51.413506,
+-2.5968037,
+"United Kingdom" 
+],
+[
+ 51.458317,
+-2.626178,
+"United Kingdom" 
+],
+[
+ 51.449398,
+-2.6116638,
 "United Kingdom" 
 ],
 [
@@ -2085,313 +2445,8 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 51.367634,
--2.7542398,
-"United Kingdom" 
-],
-[
- 51.438877,
--2.856136,
-"United Kingdom" 
-],
-[
- 51.494434,
--2.5978599,
-"United Kingdom" 
-],
-[
- 51.47686,
--2.5112252,
-"United Kingdom" 
-],
-[
- 51.458317,
--2.626178,
-"United Kingdom" 
-],
-[
- 51.440624,
--2.5683782,
-"United Kingdom" 
-],
-[
- 51.485443,
--2.5977423,
-"United Kingdom" 
-],
-[
  51.449474,
 -2.5972726,
-"United Kingdom" 
-],
-[
- 51.485054,
--2.6697545,
-"United Kingdom" 
-],
-[
- 51.46753,
--2.5831103,
-"United Kingdom" 
-],
-[
- 51.467384,
--2.6119041,
-"United Kingdom" 
-],
-[
- 51.369534,
--2.3519914,
-"United Kingdom" 
-],
-[
- 51.47645,
--2.5976248,
-"United Kingdom" 
-],
-[
- 51.494358,
--2.6122653,
-"United Kingdom" 
-],
-[
- 51.449398,
--2.6116638,
-"United Kingdom" 
-],
-[
- 51.467457,
--2.5975072,
-"United Kingdom" 
-],
-[
- 51.493427,
--2.7707202,
-"United Kingdom" 
-],
-[
- 51.440483,
--2.5971553,
-"United Kingdom" 
-],
-[
- 51.449818,
--2.5253155,
-"United Kingdom" 
-],
-[
- 53.376064,
--2.9170372,
-"United Kingdom" 
-],
-[
- 53.376293,
--2.8869743,
-"United Kingdom" 
-],
-[
- 51.742897,
--0.19653699,
-"United Kingdom" 
-],
-[
- 51.907227,
--0.3644342,
-"United Kingdom" 
-],
-[
- 52.55246,
--1.926249,
-"United Kingdom" 
-],
-[
- 53.358746,
--1.1735004,
-"United Kingdom" 
-],
-[
- 53.358746,
--1.1735004,
-"United Kingdom" 
-],
-[
- 53.358746,
--1.1735004,
-"United Kingdom" 
-],
-[
- 53.358746,
--1.1735004,
-"United Kingdom" 
-],
-[
- 52.440582,
-0.2806388,
-"United Kingdom" 
-],
-[
- 50.751423,
--1.2202638,
-"United Kingdom" 
-],
-[
- 50.752285,
--1.3620236,
-"United Kingdom" 
-],
-[
- 50.175335,
--5.011484,
-"United Kingdom" 
-],
-[
- 50.66304,
--1.5047381,
-"United Kingdom" 
-],
-[
- 50.65634,
--3.344112,
-"United Kingdom" 
-],
-[
- 51.194042,
--3.502832,
-"United Kingdom" 
-],
-[
- 50.66046,
--1.0802728,
-"United Kingdom" 
-],
-[
- 51.194042,
--3.502832,
-"United Kingdom" 
-],
-[
- 51.28868,
--3.0756438,
-"United Kingdom" 
-],
-[
- 50.293114,
--3.6146727,
-"United Kingdom" 
-],
-[
- 51.46179,
--0.34441733,
-"United Kingdom" 
-],
-[
- 52.40767,
-1.6025597,
-"United Kingdom" 
-],
-[
- 50.66304,
--1.5047381,
-"United Kingdom" 
-],
-[
- 50.751423,
--1.2202638,
-"United Kingdom" 
-],
-[
- 50.751423,
--1.2202638,
-"United Kingdom" 
-],
-[
- 50.83772,
--0.7927215,
-"United Kingdom" 
-],
-[
- 51.194042,
--3.502832,
-"United Kingdom" 
-],
-[
- 50.069702,
--5.5640182,
-"United Kingdom" 
-],
-[
- 50.84135,
--1.218766,
-"United Kingdom" 
-],
-[
- 50.75039,
--1.0785117,
-"United Kingdom" 
-],
-[
- 50.66149,
--1.2217541,
-"United Kingdom" 
-],
-[
- 50.175335,
--5.011484,
-"United Kingdom" 
-],
-[
- 51.287277,
--0.7809699,
-"United Kingdom" 
-],
-[
- 50.257538,
--5.297342,
-"United Kingdom" 
-],
-[
- 50.571564,
--1.2232367,
-"United Kingdom" 
-],
-[
- 50.84135,
--1.218766,
-"United Kingdom" 
-],
-[
- 50.84135,
--2.781234,
-"United Kingdom" 
-],
-[
- 52.672245,
-1.7722985,
-"United Kingdom" 
-],
-[
- 52.4974,
-1.6098989,
-"United Kingdom" 
-],
-[
- 50.75039,
--2.9214883,
-"United Kingdom" 
-],
-[
- 51.194042,
--3.502832,
-"United Kingdom" 
-],
-[
- 50.66149,
--1.2217541,
-"United Kingdom" 
-],
-[
- 54.25755,
--2.8443713,
 "United Kingdom" 
 ],
 [
@@ -2400,58 +2455,23 @@ var datajson =
 "United Kingdom" 
 ],
 [
+ 52.317932,
+1.5952591,
+"United Kingdom" 
+],
+[
+ 51.96329,
+1.4211539,
+"United Kingdom" 
+],
+[
  52.057198,
 1.282405,
 "United Kingdom" 
 ],
 [
- 51.651524,
--2.6505208,
-"United Kingdom" 
-],
-[
- 50.751423,
--1.2202638,
-"United Kingdom" 
-],
-[
- 50.751423,
--1.2202638,
-"United Kingdom" 
-],
-[
- 50.75039,
--1.0785117,
-"United Kingdom" 
-],
-[
- 50.75039,
--1.0785117,
-"United Kingdom" 
-],
-[
- 51.108856,
--3.0714636,
-"United Kingdom" 
-],
-[
- 50.752285,
--1.3620236,
-"United Kingdom" 
-],
-[
- 52.962803,
-1.0527366,
-"United Kingdom" 
-],
-[
- 50.159473,
--5.570697,
-"United Kingdom" 
-],
-[
- 50.571564,
--1.2232367,
+ 51.96329,
+1.4211539,
 "United Kingdom" 
 ],
 [
@@ -2460,1478 +2480,13 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.752285,
--1.3620236,
-"United Kingdom" 
-],
-[
- 50.159473,
--5.570697,
-"United Kingdom" 
-],
-[
- 51.96329,
-1.4211539,
-"United Kingdom" 
-],
-[
- 51.18774,
--0.06802027,
-"United Kingdom" 
-],
-[
- 50.66046,
--1.0802728,
-"United Kingdom" 
-],
-[
- 51.473278,
--2.2159932,
-"United Kingdom" 
-],
-[
- 49.951286,
--6.3920474,
-"United Kingdom" 
-],
-[
- 51.918034,
--3.0906193,
-"United Kingdom" 
-],
-[
- 50.171623,
--5.1513333,
-"United Kingdom" 
-],
-[
- 50.361942,
--4.742008,
-"United Kingdom" 
-],
-[
- 51.91121,
--0.32793793,
-"United Kingdom" 
-],
-[
- 50.265156,
--5.0171494,
-"United Kingdom" 
-],
-[
- 50.371117,
--4.320562,
-"United Kingdom" 
-],
-[
- 51.46974,
--1.0640929,
-"United Kingdom" 
-],
-[
- 51.470802,
--2.7919376,
-"United Kingdom" 
-],
-[
- 53.24907,
--4.323423,
-"United Kingdom" 
-],
-[
- 51.194042,
--3.502832,
-"United Kingdom" 
-],
-[
- 50.832535,
--0.366784,
-"United Kingdom" 
-],
-[
- 50.07794,
--5.2849946,
-"United Kingdom" 
-],
-[
- 53.16206,
--4.1691036,
-"United Kingdom" 
-],
-[
- 51.01233,
--0.3604755,
-"United Kingdom" 
-],
-[
- 50.66407,
--2.070753,
-"United Kingdom" 
-],
-[
- 50.66407,
--1.9292469,
-"United Kingdom" 
-],
-[
- 50.66407,
--2.070753,
-"United Kingdom" 
-],
-[
- 51.724487,
--4.099594,
-"United Kingdom" 
-],
-[
- 51.639427,
--0.19341879,
-"United Kingdom" 
-],
-[
- 50.261433,
--5.157261,
-"United Kingdom" 
-],
-[
- 50.834435,
--3.491251,
-"United Kingdom" 
-],
-[
- 50.75297,
--2.4962103,
-"United Kingdom" 
-],
-[
- 53.25453,
--4.023846,
-"United Kingdom" 
-],
-[
- 50.74918,
--3.0632315,
-"United Kingdom" 
-],
-[
- 50.754005,
--2.0708885,
-"United Kingdom" 
-],
-[
- 50.286503,
--4.035639,
-"United Kingdom" 
-],
-[
- 50.159473,
--5.570697,
-"United Kingdom" 
-],
-[
- 52.4974,
-1.6098989,
-"United Kingdom" 
-],
-[
- 50.75297,
--1.5037897,
-"United Kingdom" 
-],
-[
- 51.816853,
--3.9587765,
-"United Kingdom" 
-],
-[
- 50.288876,
--3.8953342,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 51.46179,
--0.34441733,
-"United Kingdom" 
-],
-[
- 50.832535,
--3.633216,
-"United Kingdom" 
-],
-[
- 51.18774,
--0.06802027,
-"United Kingdom" 
-],
-[
- 50.167744,
--5.291153,
-"United Kingdom" 
-],
-[
- 51.379826,
--2.934072,
-"United Kingdom" 
-],
-[
- 52.057198,
-1.282405,
-"United Kingdom" 
-],
-[
- 50.361942,
--4.742008,
-"United Kingdom" 
-],
-[
- 51.199993,
--2.9304304,
-"United Kingdom" 
-],
-[
- 50.747803,
--3.2049642,
-"United Kingdom" 
-],
-[
- 49.956474,
--6.2530303,
-"United Kingdom" 
-],
-[
- 51.100132,
--0.21452446,
-"United Kingdom" 
-],
-[
- 54.323708,
--4.537412,
-"United Kingdom" 
-],
-[
- 50.37384,
--4.1800337,
-"United Kingdom" 
-],
-[
- 51.020157,
--2.926826,
-"United Kingdom" 
-],
-[
- 50.66304,
--2.495262,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 51.556995,
--0.7737722,
-"United Kingdom" 
-],
-[
- 50.84394,
--2.0710247,
-"United Kingdom" 
-],
-[
- 51.110077,
--2.9286234,
-"United Kingdom" 
-],
-[
- 51.650635,
--1.2049326,
-"United Kingdom" 
-],
-[
- 54.25755,
--2.8443713,
-"United Kingdom" 
-],
-[
- 51.471687,
--2.64796,
-"United Kingdom" 
-],
-[
- 51.651524,
--2.6505208,
-"United Kingdom" 
-],
-[
- 51.829384,
--1.0566568,
-"United Kingdom" 
-],
-[
- 50.560776,
--3.7650113,
-"United Kingdom" 
-],
-[
- 53.99083,
--2.0762687,
-"United Kingdom" 
-],
-[
- 52.057198,
-1.282405,
-"United Kingdom" 
-],
-[
- 50.836163,
--3.3492713,
-"United Kingdom" 
-],
-[
- 50.36823,
--4.461068,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 50.159473,
--5.570697,
-"United Kingdom" 
-],
-[
- 50.293114,
--3.6146727,
-"United Kingdom" 
-],
-[
- 50.84394,
--1.9289752,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 50.83772,
--0.7927215,
-"United Kingdom" 
-],
-[
- 51.369785,
--0.20405345,
-"United Kingdom" 
-],
-[
- 50.36823,
--4.461068,
-"United Kingdom" 
-],
-[
- 51.4655,
--0.63224727,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 50.35124,
--5.163218,
-"United Kingdom" 
-],
-[
- 50.84135,
--2.781234,
-"United Kingdom" 
-],
-[
- 50.657887,
--3.2026615,
-"United Kingdom" 
-],
-[
- 50.261433,
--5.157261,
-"United Kingdom" 
-],
-[
- 49.951286,
--6.3920474,
-"United Kingdom" 
-],
-[
- 51.4655,
--0.63224727,
-"United Kingdom" 
-],
-[
- 50.66304,
--1.5047381,
-"United Kingdom" 
-],
-[
- 50.84377,
--2.2130737,
-"United Kingdom" 
-],
-[
- 50.74918,
--0.93676853,
-"United Kingdom" 
-],
-[
- 51.010242,
--0.217979,
-"United Kingdom" 
-],
-[
- 50.35124,
--5.163218,
-"United Kingdom" 
-],
-[
- 51.729305,
--0.18983695,
-"United Kingdom" 
-],
-[
- 51.00294,
--4.2093987,
-"United Kingdom" 
-],
-[
- 50.159473,
--5.570697,
-"United Kingdom" 
-],
-[
- 50.163692,
--5.430941,
-"United Kingdom" 
-],
-[
- 50.36823,
--4.461068,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 51.471687,
--2.64796,
-"United Kingdom" 
-],
-[
- 51.471687,
--2.64796,
-"United Kingdom" 
-],
-[
- 50.36823,
--4.461068,
-"United Kingdom" 
-],
-[
- 50.907356,
-0.48940247,
-"United Kingdom" 
-],
-[
- 51.54955,
--0.19698207,
-"United Kingdom" 
-],
-[
- 49.956474,
--6.2530303,
-"United Kingdom" 
-],
-[
- 53.62076,
--0.41233814,
-"United Kingdom" 
-],
-[
- 50.35124,
--5.163218,
-"United Kingdom" 
-],
-[
- 51.28868,
--3.0756438,
-"United Kingdom" 
-],
-[
- 50.163692,
--5.430941,
-"United Kingdom" 
-],
-[
- 51.54476,
--4.091308,
-"United Kingdom" 
-],
-[
- 51.88537,
-0.97914094,
-"United Kingdom" 
-],
-[
- 51.54476,
--4.091308,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 53.251896,
--4.173647,
-"United Kingdom" 
-],
-[
- 51.108856,
--3.0714636,
-"United Kingdom" 
-],
-[
- 51.290966,
--2.7888398,
-"United Kingdom" 
-],
-[
- 50.159473,
--5.570697,
-"United Kingdom" 
-],
-[
- 50.751423,
--2.7797363,
-"United Kingdom" 
-],
-[
- 50.66407,
--2.070753,
-"United Kingdom" 
-],
-[
- 50.754005,
--1.9291114,
-"United Kingdom" 
-],
-[
- 50.66407,
--1.9292469,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 50.751423,
--1.2202638,
-"United Kingdom" 
-],
-[
- 50.265156,
--5.0171494,
-"United Kingdom" 
-],
-[
- 51.645298,
--3.373157,
-"United Kingdom" 
-],
-[
- 52.057198,
-1.282405,
-"United Kingdom" 
-],
-[
- 51.017548,
--3.211943,
-"United Kingdom" 
-],
-[
- 50.65926,
--3.0611997,
-"United Kingdom" 
-],
-[
- 51.53927,
-0.3795131,
-"United Kingdom" 
-],
-[
- 50.171623,
--5.1513333,
-"United Kingdom" 
-],
-[
- 51.721813,
--4.2442775,
-"United Kingdom" 
-],
-[
- 50.840313,
--1.0767416,
-"United Kingdom" 
-],
-[
- 51.742687,
--1.6378739,
-"United Kingdom" 
-],
-[
- 50.257538,
--5.297342,
-"United Kingdom" 
-],
-[
- 51.54476,
--4.091308,
-"United Kingdom" 
-],
-[
- 50.293114,
--3.6146727,
-"United Kingdom" 
-],
-[
- 51.551674,
--0.34115562,
-"United Kingdom" 
-],
-[
- 50.538197,
--4.893384,
-"United Kingdom" 
-],
-[
- 50.175335,
--5.011484,
-"United Kingdom" 
-],
-[
- 50.163692,
--5.430941,
-"United Kingdom" 
-],
-[
- 50.83772,
--0.7927215,
-"United Kingdom" 
-],
-[
- 51.377186,
--0.7785831,
-"United Kingdom" 
-],
-[
- 51.901516,
--4.253226,
-"United Kingdom" 
-],
-[
- 50.746254,
--3.346685,
-"United Kingdom" 
-],
-[
- 50.261433,
--5.157261,
-"United Kingdom" 
-],
-[
- 51.10589,
--0.6428895,
-"United Kingdom" 
-],
-[
- 51.010242,
--0.217979,
-"United Kingdom" 
-],
-[
- 50.175335,
--5.011484,
-"United Kingdom" 
-],
-[
- 51.194042,
--0.49716815,
-"United Kingdom" 
-],
-[
- 50.842907,
--1.5028363,
-"United Kingdom" 
-],
-[
- 50.163692,
--5.430941,
-"United Kingdom" 
-],
-[
- 51.10589,
--0.6428895,
-"United Kingdom" 
-],
-[
- 50.933704,
--2.2134843,
-"United Kingdom" 
-],
-[
- 50.265156,
--5.0171494,
-"United Kingdom" 
-],
-[
- 50.573105,
--2.4943182,
-"United Kingdom" 
-],
-[
- 51.650635,
--1.2049326,
-"United Kingdom" 
-],
-[
- 51.626057,
--0.2011748,
-"United Kingdom" 
-],
-[
- 51.626057,
--0.2011748,
-"United Kingdom" 
-],
-[
- 52.81559,
--3.1181462,
-"United Kingdom" 
-],
-[
- 52.64326,
--2.5712774,
-"United Kingdom" 
-],
-[
- 52.81559,
--3.1181462,
-"United Kingdom" 
-],
-[
- 52.81242,
--3.1202908,
-"United Kingdom" 
-],
-[
- 51.54476,
--4.091308,
-"United Kingdom" 
-],
-[
- 51.4655,
--3.3677528,
-"United Kingdom" 
-],
-[
- 51.4655,
--3.3677528,
-"United Kingdom" 
-],
-[
- 51.54476,
--4.091308,
-"United Kingdom" 
-],
-[
- 52.06857,
-0.8453797,
-"United Kingdom" 
-],
-[
- 50.65462,
--3.485549,
-"United Kingdom" 
-],
-[
- 50.571564,
--1.2232367,
-"United Kingdom" 
-],
-[
- 50.171623,
--5.1513333,
-"United Kingdom" 
-],
-[
- 51.192116,
--3.645898,
-"United Kingdom" 
-],
-[
- 51.10589,
--0.6428895,
-"United Kingdom" 
-],
-[
- 51.194042,
--3.502832,
-"United Kingdom" 
-],
-[
- 50.167744,
--5.291153,
-"United Kingdom" 
-],
-[
- 50.571564,
--1.2232367,
-"United Kingdom" 
-],
-[
- 50.66304,
--1.5047381,
-"United Kingdom" 
-],
-[
- 50.163692,
--5.430941,
-"United Kingdom" 
-],
-[
- 50.163692,
--5.430941,
-"United Kingdom" 
-],
-[
- 51.88537,
-0.97914094,
-"United Kingdom" 
-],
-[
- 51.88537,
-0.97914094,
-"United Kingdom" 
-],
-[
- 49.956474,
--6.2530303,
-"United Kingdom" 
-],
-[
- 50.751423,
--1.2202638,
-"United Kingdom" 
-],
-[
- 52.057198,
-1.282405,
-"United Kingdom" 
-],
-[
- 50.75039,
--1.0785117,
-"United Kingdom" 
-],
-[
- 50.66149,
--1.2217541,
-"United Kingdom" 
-],
-[
- 50.571564,
--1.2232367,
-"United Kingdom" 
-],
-[
- 50.571564,
--1.2232367,
-"United Kingdom" 
-],
-[
- 50.751423,
--1.2202638,
-"United Kingdom" 
-],
-[
  52.317932,
 1.5952591,
 "United Kingdom" 
 ],
 [
- 50.662354,
--1.363243,
-"United Kingdom" 
-],
-[
- 50.283962,
--4.1759233,
-"United Kingdom" 
-],
-[
- 51.108856,
--3.0714636,
-"United Kingdom" 
-],
-[
- 51.471687,
--2.64796,
-"United Kingdom" 
-],
-[
- 50.66149,
--1.2217541,
-"United Kingdom" 
-],
-[
- 50.66304,
--1.5047381,
-"United Kingdom" 
-],
-[
- 51.96329,
-1.4211539,
-"United Kingdom" 
-],
-[
- 50.66046,
--1.0802728,
-"United Kingdom" 
-],
-[
- 51.112694,
--2.500053,
-"United Kingdom" 
-],
-[
- 51.01894,
--3.0693898,
-"United Kingdom" 
-],
-[
- 51.199993,
--2.9304304,
-"United Kingdom" 
-],
-[
- 50.84135,
--1.218766,
-"United Kingdom" 
-],
-[
- 51.823296,
--0.4763173,
-"United Kingdom" 
-],
-[
- 51.194042,
--0.49716815,
-"United Kingdom" 
-],
-[
- 51.20192,
--2.6441677,
-"United Kingdom" 
-],
-[
- 50.83772,
--0.7927215,
-"United Kingdom" 
-],
-[
- 51.3719,
--0.3476622,
-"United Kingdom" 
-],
-[
- 51.017548,
--3.211943,
-"United Kingdom" 
-],
-[
  52.057198,
 1.282405,
-"United Kingdom" 
-],
-[
- 50.75039,
--1.0785117,
-"United Kingdom" 
-],
-[
- 50.383022,
--3.6177242,
-"United Kingdom" 
-],
-[
- 50.746254,
--3.346685,
-"United Kingdom" 
-],
-[
- 52.71545,
--3.9987974,
-"United Kingdom" 
-],
-[
- 50.463715,
--4.1841645,
-"United Kingdom" 
-],
-[
- 52.317932,
-1.5952591,
-"United Kingdom" 
-],
-[
- 50.752285,
--1.3620236,
-"United Kingdom" 
-],
-[
- 50.261433,
--5.157261,
-"United Kingdom" 
-],
-[
- 50.727654,
--4.4798613,
-"United Kingdom" 
-],
-[
- 52.4031,
-1.7492679,
-"United Kingdom" 
-],
-[
- 50.66046,
--1.0802728,
-"United Kingdom" 
-],
-[
- 50.751423,
--1.2202638,
-"United Kingdom" 
-],
-[
- 52.71545,
--3.9987974,
-"United Kingdom" 
-],
-[
- 50.159473,
--5.570697,
-"United Kingdom" 
-],
-[
- 50.92434,
--3.494124,
-"United Kingdom" 
-],
-[
- 51.369785,
--0.20405345,
-"United Kingdom" 
-],
-[
- 50.66304,
--1.5047381,
-"United Kingdom" 
-],
-[
- 52.072,
-0.6996428,
-"United Kingdom" 
-],
-[
- 53.99083,
--2.0762687,
-"United Kingdom" 
-],
-[
- 51.3719,
--0.3476622,
-"United Kingdom" 
-],
-[
- 50.75039,
--1.0785117,
-"United Kingdom" 
-],
-[
- 51.110077,
--2.9286234,
-"United Kingdom" 
-],
-[
- 50.751423,
--1.2202638,
-"United Kingdom" 
-],
-[
- 50.65634,
--3.344112,
-"United Kingdom" 
-],
-[
- 51.020157,
--2.926826,
-"United Kingdom" 
-],
-[
- 52.317932,
-1.5952591,
-"United Kingdom" 
-],
-[
- 53.358746,
--1.1735004,
-"United Kingdom" 
-],
-[
- 53.358746,
--1.1735004,
-"United Kingdom" 
-],
-[
- 53.358746,
--1.1735004,
-"United Kingdom" 
-],
-[
- 53.358746,
--1.1735004,
-"United Kingdom" 
-],
-[
- 53.376293,
--2.8869743,
-"United Kingdom" 
-],
-[
- 52.40767,
-1.6025597,
-"United Kingdom" 
-],
-[
- 52.4031,
-1.7492679,
-"United Kingdom" 
-],
-[
- 52.317932,
-1.5952591,
-"United Kingdom" 
-],
-[
- 52.06857,
-0.8453797,
-"United Kingdom" 
-],
-[
- 52.057198,
-1.282405,
-"United Kingdom" 
-],
-[
- 51.358643,
--2.7540922,
-"United Kingdom" 
-],
-[
- 51.476593,
--2.5688252,
-"United Kingdom" 
-],
-[
- 51.494125,
--2.655481,
-"United Kingdom" 
-],
-[
- 51.4676,
--2.5687134,
-"United Kingdom" 
-],
-[
- 51.458466,
--2.59739,
-"United Kingdom" 
-],
-[
- 51.404655,
--2.5679321,
-"United Kingdom" 
-],
-[
- 51.440826,
--2.5252123,
-"United Kingdom" 
-],
-[
- 51.503426,
--2.5979776,
-"United Kingdom" 
-],
-[
- 51.404587,
--2.5823095,
-"United Kingdom" 
-],
-[
- 51.44932,
--2.626055,
-"United Kingdom" 
-],
-[
- 51.348064,
--2.969328,
-"United Kingdom" 
-],
-[
- 51.494286,
--2.6266706,
-"United Kingdom" 
-],
-[
- 51.485367,
--2.612145,
-"United Kingdom" 
-],
-[
- 51.476524,
--2.583225,
-"United Kingdom" 
-],
-[
- 51.413433,
--2.6111836,
-"United Kingdom" 
-],
-[
- 51.503197,
--2.6412022,
-"United Kingdom" 
-],
-[
- 51.449398,
--2.6116638,
-"United Kingdom" 
-],
-[
- 51.412773,
--2.7262208,
-"United Kingdom" 
-],
-[
- 51.458393,
--2.611784,
-"United Kingdom" 
-],
-[
- 51.46767,
--2.5543163,
-"United Kingdom" 
-],
-[
- 51.45881,
--2.5254188,
-"United Kingdom" 
-],
-[
- 51.458317,
--2.626178,
-"United Kingdom" 
-],
-[
- 51.494205,
--2.6410758,
-"United Kingdom" 
-],
-[
- 51.476376,
--2.6120245,
-"United Kingdom" 
-],
-[
- 51.288254,
--2.4517615,
-"United Kingdom" 
-],
-[
- 51.413647,
--2.5680437,
-"United Kingdom" 
-],
-[
- 51.4763,
--2.6264243,
-"United Kingdom" 
-],
-[
- 51.49396,
--2.6842914,
-"United Kingdom" 
-],
-[
- 51.503277,
--2.626794,
-"United Kingdom" 
-],
-[
- 51.48529,
--2.6265473,
-"United Kingdom" 
-],
-[
- 51.43984,
--2.7122607,
-"United Kingdom" 
-],
-[
- 51.512417,
--2.5980954,
-"United Kingdom" 
-],
-[
- 51.49352,
--2.7563155,
-"United Kingdom" 
-],
-[
- 51.357056,
--2.9695177,
-"United Kingdom" 
-],
-[
- 51.485516,
--2.5833397,
-"United Kingdom" 
-],
-[
- 51.43156,
--2.5826523,
-"United Kingdom" 
-],
-[
- 51.413784,
--2.5392833,
-"United Kingdom" 
-],
-[
- 51.43975,
--2.7266486,
-"United Kingdom" 
-],
-[
- 51.431416,
--2.6114235,
-"United Kingdom" 
-],
-[
- 51.494358,
--2.6122653,
-"United Kingdom" 
-],
-[
- 51.324112,
--2.4808195,
-"United Kingdom" 
-],
-[
- 51.43102,
--2.6833506,
-"United Kingdom" 
-],
-[
- 51.440624,
--2.5683782,
-"United Kingdom" 
-],
-[
- 52.55246,
--1.926249,
-"United Kingdom" 
-],
-[
- 52.552277,
--2.2212522,
-"United Kingdom" 
-],
-[
- 52.55246,
--1.926249,
-"United Kingdom" 
-],
-[
- 53.64498,
--3.013637,
-"United Kingdom" 
-],
-[
- 53.41154,
--2.9779854,
-"United Kingdom" 
-],
-[
- 53.36045,
--1.4740279,
-"United Kingdom" 
-],
-[
- 53.36045,
--1.4740279,
-"United Kingdom" 
-],
-[
- 53.36045,
--1.4740279,
-"United Kingdom" 
-],
-[
- 53.36045,
--1.4740279,
-"United Kingdom" 
-],
-[
- 53.36045,
--1.4740279,
 "United Kingdom" 
 ],
 [
@@ -3950,13 +2505,243 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 52.072,
-0.6996428,
+ 53.36045,
+-1.4740279,
 "United Kingdom" 
 ],
 [
- 50.171623,
--5.1513333,
+ 53.36045,
+-1.4740279,
+"United Kingdom" 
+],
+[
+ 53.36045,
+-1.4740279,
+"United Kingdom" 
+],
+[
+ 53.36045,
+-1.4740279,
+"United Kingdom" 
+],
+[
+ 53.36045,
+-1.4740279,
+"United Kingdom" 
+],
+[
+ 51.626057,
+-0.2011748,
+"United Kingdom" 
+],
+[
+ 51.626057,
+-0.2011748,
+"United Kingdom" 
+],
+[
+ 53.376293,
+-2.8869743,
+"United Kingdom" 
+],
+[
+ 51.46974,
+-1.0640929,
+"United Kingdom" 
+],
+[
+ 53.25453,
+-4.023846,
+"United Kingdom" 
+],
+[
+ 50.74918,
+-3.0632315,
+"United Kingdom" 
+],
+[
+ 50.83772,
+-0.7927215,
+"United Kingdom" 
+],
+[
+ 50.265156,
+-5.0171494,
+"United Kingdom" 
+],
+[
+ 51.742687,
+-1.6378739,
+"United Kingdom" 
+],
+[
+ 51.471687,
+-2.64796,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 50.65926,
+-3.0611997,
+"United Kingdom" 
+],
+[
+ 50.36823,
+-4.461068,
+"United Kingdom" 
+],
+[
+ 51.91121,
+-0.32793793,
+"United Kingdom" 
+],
+[
+ 53.62076,
+-0.41233814,
+"United Kingdom" 
+],
+[
+ 50.257538,
+-5.297342,
+"United Kingdom" 
+],
+[
+ 51.816853,
+-3.9587765,
+"United Kingdom" 
+],
+[
+ 50.746254,
+-3.346685,
+"United Kingdom" 
+],
+[
+ 50.66407,
+-2.070753,
+"United Kingdom" 
+],
+[
+ 49.951286,
+-6.3920474,
+"United Kingdom" 
+],
+[
+ 51.53927,
+0.3795131,
+"United Kingdom" 
+],
+[
+ 51.724487,
+-4.099594,
+"United Kingdom" 
+],
+[
+ 51.471687,
+-2.64796,
+"United Kingdom" 
+],
+[
+ 50.159473,
+-5.570697,
+"United Kingdom" 
+],
+[
+ 51.00294,
+-4.2093987,
+"United Kingdom" 
+],
+[
+ 50.83772,
+-0.7927215,
+"United Kingdom" 
+],
+[
+ 50.265156,
+-5.0171494,
+"United Kingdom" 
+],
+[
+ 51.199993,
+-2.9304304,
+"United Kingdom" 
+],
+[
+ 50.261433,
+-5.157261,
+"United Kingdom" 
+],
+[
+ 50.167744,
+-5.291153,
+"United Kingdom" 
+],
+[
+ 50.75297,
+-2.4962103,
+"United Kingdom" 
+],
+[
+ 50.37384,
+-4.1800337,
+"United Kingdom" 
+],
+[
+ 50.36823,
+-4.461068,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-1.2202638,
+"United Kingdom" 
+],
+[
+ 50.907356,
+0.48940247,
+"United Kingdom" 
+],
+[
+ 50.293114,
+-3.6146727,
+"United Kingdom" 
+],
+[
+ 51.556995,
+-0.7737722,
+"United Kingdom" 
+],
+[
+ 50.35124,
+-5.163218,
+"United Kingdom" 
+],
+[
+ 50.573105,
+-2.4943182,
+"United Kingdom" 
+],
+[
+ 50.66407,
+-2.070753,
+"United Kingdom" 
+],
+[
+ 51.650635,
+-1.2049326,
+"United Kingdom" 
+],
+[
+ 51.54476,
+-4.091308,
+"United Kingdom" 
+],
+[
+ 50.74918,
+-0.93676853,
 "United Kingdom" 
 ],
 [
@@ -3965,28 +2750,1208 @@ var datajson =
 "United Kingdom" 
 ],
 [
+ 50.832535,
+-0.366784,
+"United Kingdom" 
+],
+[
+ 51.829384,
+-1.0566568,
+"United Kingdom" 
+],
+[
+ 50.261433,
+-5.157261,
+"United Kingdom" 
+],
+[
+ 53.16206,
+-4.1691036,
+"United Kingdom" 
+],
+[
+ 50.66304,
+-2.495262,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 51.290966,
+-2.7888398,
+"United Kingdom" 
+],
+[
+ 49.956474,
+-6.2530303,
+"United Kingdom" 
+],
+[
+ 50.836163,
+-3.3492713,
+"United Kingdom" 
+],
+[
+ 50.36823,
+-4.461068,
+"United Kingdom" 
+],
+[
+ 49.951286,
+-6.3920474,
+"United Kingdom" 
+],
+[
+ 50.261433,
+-5.157261,
+"United Kingdom" 
+],
+[
+ 51.721813,
+-4.2442775,
+"United Kingdom" 
+],
+[
+ 50.747803,
+-3.2049642,
+"United Kingdom" 
+],
+[
+ 49.956474,
+-6.2530303,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 51.54476,
+-4.091308,
+"United Kingdom" 
+],
+[
+ 51.01233,
+-0.3604755,
+"United Kingdom" 
+],
+[
+ 51.4655,
+-0.63224727,
+"United Kingdom" 
+],
+[
+ 50.66407,
+-1.9292469,
+"United Kingdom" 
+],
+[
+ 51.650635,
+-1.2049326,
+"United Kingdom" 
+],
+[
+ 54.323708,
+-4.537412,
+"United Kingdom" 
+],
+[
+ 50.66407,
+-2.070753,
+"United Kingdom" 
+],
+[
+ 50.832535,
+-3.633216,
+"United Kingdom" 
+],
+[
+ 50.159473,
+-5.570697,
+"United Kingdom" 
+],
+[
+ 51.54476,
+-4.091308,
+"United Kingdom" 
+],
+[
+ 51.020157,
+-2.926826,
+"United Kingdom" 
+],
+[
+ 50.35124,
+-5.163218,
+"United Kingdom" 
+],
+[
+ 50.560776,
+-3.7650113,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-2.7797363,
+"United Kingdom" 
+],
+[
+ 50.286503,
+-4.035639,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 51.379826,
+-2.934072,
+"United Kingdom" 
+],
+[
+ 51.4655,
+-0.63224727,
+"United Kingdom" 
+],
+[
+ 51.54955,
+-0.19698207,
+"United Kingdom" 
+],
+[
+ 50.84135,
+-2.781234,
+"United Kingdom" 
+],
+[
+ 51.377186,
+-0.7785831,
+"United Kingdom" 
+],
+[
+ 50.163692,
+-5.430941,
+"United Kingdom" 
+],
+[
+ 53.99083,
+-2.0762687,
+"United Kingdom" 
+],
+[
+ 50.163692,
+-5.430941,
+"United Kingdom" 
+],
+[
+ 50.163692,
+-5.430941,
+"United Kingdom" 
+],
+[
+ 51.918034,
+-3.0906193,
+"United Kingdom" 
+],
+[
+ 50.293114,
+-3.6146727,
+"United Kingdom" 
+],
+[
+ 51.729305,
+-0.18983695,
+"United Kingdom" 
+],
+[
+ 52.057198,
+1.282405,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 51.194042,
+-3.502832,
+"United Kingdom" 
+],
+[
+ 50.07794,
+-5.2849946,
+"United Kingdom" 
+],
+[
+ 51.651524,
+-2.6505208,
+"United Kingdom" 
+],
+[
+ 50.84394,
+-1.9289752,
+"United Kingdom" 
+],
+[
+ 50.657887,
+-3.2026615,
+"United Kingdom" 
+],
+[
+ 51.110077,
+-2.9286234,
+"United Kingdom" 
+],
+[
+ 50.36823,
+-4.461068,
+"United Kingdom" 
+],
+[
+ 51.18774,
+-0.06802027,
+"United Kingdom" 
+],
+[
+ 50.834435,
+-3.491251,
+"United Kingdom" 
+],
+[
+ 50.361942,
+-4.742008,
+"United Kingdom" 
+],
+[
+ 51.551674,
+-0.34115562,
+"United Kingdom" 
+],
+[
+ 51.88537,
+0.97914094,
+"United Kingdom" 
+],
+[
+ 51.017548,
+-3.211943,
+"United Kingdom" 
+],
+[
+ 52.4974,
+1.6098989,
+"United Kingdom" 
+],
+[
+ 52.057198,
+1.282405,
+"United Kingdom" 
+],
+[
+ 50.35124,
+-5.163218,
+"United Kingdom" 
+],
+[
+ 50.265156,
+-5.0171494,
+"United Kingdom" 
+],
+[
+ 50.84394,
+-2.0710247,
+"United Kingdom" 
+],
+[
+ 50.361942,
+-4.742008,
+"United Kingdom" 
+],
+[
+ 51.46179,
+-0.34441733,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 51.901516,
+-4.253226,
+"United Kingdom" 
+],
+[
+ 50.754005,
+-1.9291114,
+"United Kingdom" 
+],
+[
+ 51.10589,
+-0.6428895,
+"United Kingdom" 
+],
+[
+ 50.840313,
+-1.0767416,
+"United Kingdom" 
+],
+[
+ 51.470802,
+-2.7919376,
+"United Kingdom" 
+],
+[
+ 50.66407,
+-1.9292469,
+"United Kingdom" 
+],
+[
+ 50.159473,
+-5.570697,
+"United Kingdom" 
+],
+[
+ 51.010242,
+-0.217979,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 50.842907,
+-1.5028363,
+"United Kingdom" 
+],
+[
+ 50.171623,
+-5.1513333,
+"United Kingdom" 
+],
+[
+ 54.25755,
+-2.8443713,
+"United Kingdom" 
+],
+[
+ 50.66304,
+-1.5047381,
+"United Kingdom" 
+],
+[
+ 50.288876,
+-3.8953342,
+"United Kingdom" 
+],
+[
+ 50.163692,
+-5.430941,
+"United Kingdom" 
+],
+[
+ 51.194042,
+-0.49716815,
+"United Kingdom" 
+],
+[
+ 50.75297,
+-1.5037897,
+"United Kingdom" 
+],
+[
+ 50.84377,
+-2.2130737,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 51.28868,
+-3.0756438,
+"United Kingdom" 
+],
+[
+ 50.371117,
+-4.320562,
+"United Kingdom" 
+],
+[
+ 53.251896,
+-4.173647,
+"United Kingdom" 
+],
+[
  51.108856,
 -3.0714636,
 "United Kingdom" 
 ],
 [
- 51.192116,
--0.35410187,
+ 50.538197,
+-4.893384,
 "United Kingdom" 
 ],
 [
- 52.865036,
-1.3431085,
+ 50.159473,
+-5.570697,
 "United Kingdom" 
 ],
 [
- 51.467308,
--2.626301,
+ 51.639427,
+-0.19341879,
+"United Kingdom" 
+],
+[
+ 50.933704,
+-2.2134843,
+"United Kingdom" 
+],
+[
+ 50.538197,
+-4.893384,
+"United Kingdom" 
+],
+[
+ 51.645298,
+-3.373157,
+"United Kingdom" 
+],
+[
+ 53.24907,
+-4.323423,
+"United Kingdom" 
+],
+[
+ 51.369785,
+-0.20405345,
+"United Kingdom" 
+],
+[
+ 50.754005,
+-2.0708885,
+"United Kingdom" 
+],
+[
+ 51.471687,
+-2.64796,
+"United Kingdom" 
+],
+[
+ 50.175335,
+-5.011484,
+"United Kingdom" 
+],
+[
+ 50.175335,
+-5.011484,
+"United Kingdom" 
+],
+[
+ 51.10589,
+-0.6428895,
+"United Kingdom" 
+],
+[
+ 50.171623,
+-5.1513333,
+"United Kingdom" 
+],
+[
+ 51.100132,
+-0.21452446,
+"United Kingdom" 
+],
+[
+ 51.010242,
+-0.217979,
+"United Kingdom" 
+],
+[
+ 52.057198,
+1.282405,
+"United Kingdom" 
+],
+[
+ 52.40767,
+1.6025597,
+"United Kingdom" 
+],
+[
+ 52.06857,
+0.8453797,
+"United Kingdom" 
+],
+[
+ 52.317932,
+1.5952591,
+"United Kingdom" 
+],
+[
+ 52.4031,
+1.7492679,
+"United Kingdom" 
+],
+[
+ 52.64326,
+-2.5712774,
+"United Kingdom" 
+],
+[
+ 52.81242,
+-3.1202908,
+"United Kingdom" 
+],
+[
+ 52.81559,
+-3.1181462,
+"United Kingdom" 
+],
+[
+ 52.81559,
+-3.1181462,
+"United Kingdom" 
+],
+[
+ 51.54476,
+-4.091308,
+"United Kingdom" 
+],
+[
+ 51.54476,
+-4.091308,
+"United Kingdom" 
+],
+[
+ 51.4655,
+-3.3677528,
+"United Kingdom" 
+],
+[
+ 51.4655,
+-3.3677528,
+"United Kingdom" 
+],
+[
+ 51.4676,
+-2.5687134,
+"United Kingdom" 
+],
+[
+ 51.476524,
+-2.583225,
+"United Kingdom" 
+],
+[
+ 51.431416,
+-2.6114235,
+"United Kingdom" 
+],
+[
+ 51.476593,
+-2.5688252,
+"United Kingdom" 
+],
+[
+ 51.494205,
+-2.6410758,
+"United Kingdom" 
+],
+[
+ 51.49352,
+-2.7563155,
+"United Kingdom" 
+],
+[
+ 51.494358,
+-2.6122653,
+"United Kingdom" 
+],
+[
+ 51.46767,
+-2.5543163,
+"United Kingdom" 
+],
+[
+ 51.503277,
+-2.626794,
+"United Kingdom" 
+],
+[
+ 51.494286,
+-2.6266706,
+"United Kingdom" 
+],
+[
+ 51.458317,
+-2.626178,
+"United Kingdom" 
+],
+[
+ 51.412773,
+-2.7262208,
+"United Kingdom" 
+],
+[
+ 51.485367,
+-2.612145,
+"United Kingdom" 
+],
+[
+ 51.503426,
+-2.5979776,
+"United Kingdom" 
+],
+[
+ 51.404655,
+-2.5679321,
+"United Kingdom" 
+],
+[
+ 51.512417,
+-2.5980954,
+"United Kingdom" 
+],
+[
+ 51.288254,
+-2.4517615,
+"United Kingdom" 
+],
+[
+ 51.324112,
+-2.4808195,
+"United Kingdom" 
+],
+[
+ 51.45881,
+-2.5254188,
+"United Kingdom" 
+],
+[
+ 51.43156,
+-2.5826523,
+"United Kingdom" 
+],
+[
+ 51.413784,
+-2.5392833,
+"United Kingdom" 
+],
+[
+ 51.449398,
+-2.6116638,
+"United Kingdom" 
+],
+[
+ 51.494125,
+-2.655481,
+"United Kingdom" 
+],
+[
+ 51.485516,
+-2.5833397,
+"United Kingdom" 
+],
+[
+ 51.43975,
+-2.7266486,
+"United Kingdom" 
+],
+[
+ 51.48529,
+-2.6265473,
+"United Kingdom" 
+],
+[
+ 51.458466,
+-2.59739,
+"United Kingdom" 
+],
+[
+ 51.476376,
+-2.6120245,
+"United Kingdom" 
+],
+[
+ 51.404587,
+-2.5823095,
+"United Kingdom" 
+],
+[
+ 51.357056,
+-2.9695177,
+"United Kingdom" 
+],
+[
+ 51.348064,
+-2.969328,
+"United Kingdom" 
+],
+[
+ 51.440826,
+-2.5252123,
+"United Kingdom" 
+],
+[
+ 51.458393,
+-2.611784,
+"United Kingdom" 
+],
+[
+ 51.43102,
+-2.6833506,
+"United Kingdom" 
+],
+[
+ 51.413647,
+-2.5680437,
+"United Kingdom" 
+],
+[
+ 51.503197,
+-2.6412022,
+"United Kingdom" 
+],
+[
+ 51.44932,
+-2.626055,
+"United Kingdom" 
+],
+[
+ 51.413433,
+-2.6111836,
+"United Kingdom" 
+],
+[
+ 51.358643,
+-2.7540922,
+"United Kingdom" 
+],
+[
+ 51.43984,
+-2.7122607,
+"United Kingdom" 
+],
+[
+ 51.49396,
+-2.6842914,
+"United Kingdom" 
+],
+[
+ 51.440624,
+-2.5683782,
+"United Kingdom" 
+],
+[
+ 51.4763,
+-2.6264243,
 "United Kingdom" 
 ],
 [
  53.358746,
 -1.1735004,
+"United Kingdom" 
+],
+[
+ 53.358746,
+-1.1735004,
+"United Kingdom" 
+],
+[
+ 53.358746,
+-1.1735004,
+"United Kingdom" 
+],
+[
+ 53.358746,
+-1.1735004,
+"United Kingdom" 
+],
+[
+ 52.552277,
+-2.2212522,
+"United Kingdom" 
+],
+[
+ 52.55246,
+-1.926249,
+"United Kingdom" 
+],
+[
+ 52.55246,
+-1.926249,
+"United Kingdom" 
+],
+[
+ 52.317932,
+1.5952591,
+"United Kingdom" 
+],
+[
+ 50.167744,
+-5.291153,
+"United Kingdom" 
+],
+[
+ 51.3719,
+-0.3476622,
+"United Kingdom" 
+],
+[
+ 50.66304,
+-1.5047381,
+"United Kingdom" 
+],
+[
+ 50.66149,
+-1.2217541,
+"United Kingdom" 
+],
+[
+ 53.99083,
+-2.0762687,
+"United Kingdom" 
+],
+[
+ 50.65634,
+-3.344112,
+"United Kingdom" 
+],
+[
+ 50.66046,
+-1.0802728,
+"United Kingdom" 
+],
+[
+ 52.057198,
+1.282405,
+"United Kingdom" 
+],
+[
+ 52.072,
+0.6996428,
+"United Kingdom" 
+],
+[
+ 50.75039,
+-1.0785117,
+"United Kingdom" 
+],
+[
+ 50.261433,
+-5.157261,
+"United Kingdom" 
+],
+[
+ 51.199993,
+-2.9304304,
+"United Kingdom" 
+],
+[
+ 50.571564,
+-1.2232367,
+"United Kingdom" 
+],
+[
+ 50.163692,
+-5.430941,
+"United Kingdom" 
+],
+[
+ 51.108856,
+-3.0714636,
+"United Kingdom" 
+],
+[
+ 50.171623,
+-5.1513333,
+"United Kingdom" 
+],
+[
+ 50.746254,
+-3.346685,
+"United Kingdom" 
+],
+[
+ 50.92434,
+-3.494124,
+"United Kingdom" 
+],
+[
+ 50.662354,
+-1.363243,
+"United Kingdom" 
+],
+[
+ 51.823296,
+-0.4763173,
+"United Kingdom" 
+],
+[
+ 50.75039,
+-1.0785117,
+"United Kingdom" 
+],
+[
+ 52.057198,
+1.282405,
+"United Kingdom" 
+],
+[
+ 51.017548,
+-3.211943,
+"United Kingdom" 
+],
+[
+ 50.65462,
+-3.485549,
+"United Kingdom" 
+],
+[
+ 51.192116,
+-3.645898,
+"United Kingdom" 
+],
+[
+ 50.752285,
+-1.3620236,
+"United Kingdom" 
+],
+[
+ 51.110077,
+-2.9286234,
+"United Kingdom" 
+],
+[
+ 50.84135,
+-1.218766,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-1.2202638,
+"United Kingdom" 
+],
+[
+ 50.83772,
+-0.7927215,
+"United Kingdom" 
+],
+[
+ 52.317932,
+1.5952591,
+"United Kingdom" 
+],
+[
+ 50.571564,
+-1.2232367,
+"United Kingdom" 
+],
+[
+ 50.571564,
+-1.2232367,
+"United Kingdom" 
+],
+[
+ 50.66304,
+-1.5047381,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-1.2202638,
+"United Kingdom" 
+],
+[
+ 50.66304,
+-1.5047381,
+"United Kingdom" 
+],
+[
+ 51.112694,
+-2.500053,
+"United Kingdom" 
+],
+[
+ 51.194042,
+-0.49716815,
+"United Kingdom" 
+],
+[
+ 50.66149,
+-1.2217541,
+"United Kingdom" 
+],
+[
+ 50.66046,
+-1.0802728,
+"United Kingdom" 
+],
+[
+ 51.369785,
+-0.20405345,
+"United Kingdom" 
+],
+[
+ 52.71545,
+-3.9987974,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-1.2202638,
+"United Kingdom" 
+],
+[
+ 51.471687,
+-2.64796,
+"United Kingdom" 
+],
+[
+ 51.020157,
+-2.926826,
+"United Kingdom" 
+],
+[
+ 52.4031,
+1.7492679,
+"United Kingdom" 
+],
+[
+ 50.571564,
+-1.2232367,
+"United Kingdom" 
+],
+[
+ 50.383022,
+-3.6177242,
+"United Kingdom" 
+],
+[
+ 52.317932,
+1.5952591,
+"United Kingdom" 
+],
+[
+ 50.727654,
+-4.4798613,
+"United Kingdom" 
+],
+[
+ 51.88537,
+0.97914094,
+"United Kingdom" 
+],
+[
+ 51.20192,
+-2.6441677,
+"United Kingdom" 
+],
+[
+ 50.463715,
+-4.1841645,
+"United Kingdom" 
+],
+[
+ 52.71545,
+-3.9987974,
+"United Kingdom" 
+],
+[
+ 51.96329,
+1.4211539,
+"United Kingdom" 
+],
+[
+ 51.10589,
+-0.6428895,
+"United Kingdom" 
+],
+[
+ 50.163692,
+-5.430941,
+"United Kingdom" 
+],
+[
+ 50.283962,
+-4.1759233,
+"United Kingdom" 
+],
+[
+ 50.159473,
+-5.570697,
+"United Kingdom" 
+],
+[
+ 50.75039,
+-1.0785117,
+"United Kingdom" 
+],
+[
+ 51.3719,
+-0.3476622,
+"United Kingdom" 
+],
+[
+ 51.88537,
+0.97914094,
+"United Kingdom" 
+],
+[
+ 51.01894,
+-3.0693898,
+"United Kingdom" 
+],
+[
+ 52.06857,
+0.8453797,
+"United Kingdom" 
+],
+[
+ 50.751423,
+-1.2202638,
+"United Kingdom" 
+],
+[
+ 49.956474,
+-6.2530303,
+"United Kingdom" 
+],
+[
+ 51.194042,
+-3.502832,
+"United Kingdom" 
+],
+[
+ 53.41154,
+-2.9779854,
+"United Kingdom" 
+],
+[
+ 53.64498,
+-3.013637,
+"United Kingdom" 
+],
+[
+ 51.467308,
+-2.626301,
 "United Kingdom" 
 ],
 [
@@ -4000,13 +3965,18 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.839104,
--3.0652738,
+ 50.57413,
+-1.9293817,
 "United Kingdom" 
 ],
 [
- 50.57413,
--1.9293817,
+ 50.472927,
+-3.620791,
+"United Kingdom" 
+],
+[
+ 51.01894,
+-3.0693898,
 "United Kingdom" 
 ],
 [
@@ -4020,13 +3990,8 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 51.01894,
--3.0693898,
-"United Kingdom" 
-],
-[
- 50.834435,
--0.50874895,
+ 50.839104,
+-3.0652738,
 "United Kingdom" 
 ],
 [
@@ -4040,8 +4005,43 @@ var datajson =
 "United Kingdom" 
 ],
 [
- 50.472927,
--3.620791,
+ 50.834435,
+-0.50874895,
+"United Kingdom" 
+],
+[
+ 53.358746,
+-1.1735004,
+"United Kingdom" 
+],
+[
+ 52.057198,
+1.282405,
+"United Kingdom" 
+],
+[
+ 52.865036,
+1.3431085,
+"United Kingdom" 
+],
+[
+ 51.108856,
+-3.0714636,
+"United Kingdom" 
+],
+[
+ 50.171623,
+-5.1513333,
+"United Kingdom" 
+],
+[
+ 51.192116,
+-0.35410187,
+"United Kingdom" 
+],
+[
+ 52.072,
+0.6996428,
 "United Kingdom" 
 ] 
 ];
@@ -4053,8 +4053,8 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMapID1bac2b6727f3() {
-var data = gvisDataMapID1bac2b6727f3();
+function drawChartMapIDb085424efa() {
+var data = gvisDataMapIDb085424efa();
 var options = {};
 options["showTip"] = true;
 options["showLine"] = false;
@@ -4064,7 +4064,7 @@ options["width"] =   1400;
 options["height"] =    800;
 
     var chart = new google.visualization.Map(
-    document.getElementById('MapID1bac2b6727f3')
+    document.getElementById('MapIDb085424efa')
     );
     chart.draw(data,options);
     
@@ -4088,9 +4088,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMapID1bac2b6727f3);
+callbacks.push(drawChartMapIDb085424efa);
 })();
-function displayChartMapID1bac2b6727f3() {
+function displayChartMapIDb085424efa() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -4116,12 +4116,12 @@ callbacks.shift()();
 
 <!-- jsChart -->  
 
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMapID1bac2b6727f3"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMapIDb085424efa"></script>
  
 
 <!-- divChart -->
 
-<div id="MapID1bac2b6727f3"
+<div id="MapIDb085424efa"
   style="width: 1400px; height: 800px;">
 </div>
 
@@ -4492,7 +4492,7 @@ bwplot(tmin.all.c)
 <pre><code class="r">densityplot(tmin1.c)
 </code></pre>
 
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAARVBMVEUAAAAAADoAAGYAOpAAZrY6AAA6kNtmAGZmOjpmOpBmtv+QOjqQOmaQkLaQ2/+2ZgC2///bkDrb////tmb//7b//9v///87nluuAAAACXBIWXMAAAsSAAALEgHS3X78AAANV0lEQVR4nO2ciVbjOhAFNRuzPggk+P8/9ZGEOE7iRbZaUre66nAY20Ltqy47McwMoQOXhNoBoA6IdwrinYJ4pyDeKYh3CuKdgninIN4piHcK4p2CeKcg3imIdwrinYJ4pyDeKYh3CuKdgninIN4piHcK4p2CeKcg3imIdwrinYJ4p2wWL3bFyF16CispjJRar+neNL24xHpN96bpxSXWa7o3TS8usV7TvWl6cYn1mu5N04vbXC+ADcTFr58CFUC8UxDvFMQ7BfFOQbxTEO8UxDsF8U5BvFMQ7xTEOwXxTkG8UxDvFMQ7BfFOQbxTEO8UxDsF8U5BvFMQ75TV4l/Cl+fz1uHn7rjb78cUBC2sFb//9vbxcdoKX3fd+9/nxSmgkbXiX5/Od3r3/t/7v113+PUjfL98ccT/0HCKwqbM2xoR/6c7Cj9y/HP/cdd/HJqdAhqbsvmO7/oLYP8UX9ApCpuy/T3+fMc/ddzxyyh8A9z2VH/4/fZ5x3881T8tTXFPUNgVvo8vAOKdgninIN4pQWFbEF8AxDsF8T4JncK2ID4/iHdK6D8pAvH5QbxTEO8UxPskDD7rAfHZQbxTws0fWkB8dhDvFMQ7BfFOQbxPwsOGChCfG8Q7BfFOQbxTEO+UMLKlAMTnBvE+CaOb9UF8ZhDvFMQ7JUxs1wbxmUG8UxDvFMT7JEzuVAbxeUG8UxDvFMQ7BfFOCTN7VUF8VsLsbk0QnxXEOwXxTkG8UxDvFMQ7BfE+uW+GouYgPieIdwrinYJ4pzw0Q093EJ8TxDsF8T557IWe7iA+I4h3CuKdgninIN4piHcK4p2CeJ+MtEJPdxCfj7FWqGkP4vOBeKcg3imIdwriG2ZuuYhvl4D4hCmGCTPrHR1R0x7EpxDm1ov4dgndzIIR3yyh/zQ5GnWwBohPAPFpU6wSbv6YGo46Wh7EbwfxiVOMEh42xoejDhcH8ZtBfOoUm4TRzYWDevqD+K0gPnmKScLE9vxBPf1B/EbC5M7MsenDxUH8NsLM3vSx6cPFQfw2wuzuxKGZw8VB/DYWxa/7sU55EL8NxAtMMcj9KuPFa2kQ4jfxsMrlA4sDZUH8JhAvMcUgiJeYYo+It3TEt8jyt+3TbVDSIMRvAfEiU+yBeJEp9kC8yBRzRPw1LOJbBPEyU8yBeJkp5kgSr6RDiF9PxN+0z3VBR4cQvx7EC02xBuKFplgD8UJTrBHxj2sQ3yAxf++G+AZBvNQUYyBeaooxIn4oN9sEHR1C/FpifiaH+AZBvNgUWySL19EixK8l4rltoQcqWoT4tSyLX2qBihYhfiXLb9+LHVDRIsSvZFH8cgNUtAjxK1lqWMT6VbQI8StZaFjM8lW0aLX4l/Dl+bx1+Lkb7kYVNI/EA7uKFq0Vv//29vFx2gpfd4PduILmkVieihatFf/6dL7Tu/f/3v/trrvHLz6TIaQi2hE/a2tE/J/uKPzISfx1d3JKU7QjfuXo4Ba/v+NjCprHrfjBm/pRvLf3eJnVaejRtqf6w++3s3hvT/WOxacVtA7iJacYAvGSUwyBeMkphkC85BQ7CC1OQ48QvwbEi06xA+JFp9gB8aJT7IB40SlmkFqbhh4hfgVia1PQJMSvAPGyU8yAeNkpZkC87BQryC1NQZMQHw/ihadYAfHCU6yAeOEpVkC88BQrIF54ihEkV1a/S4iPBvHSU4yAeOkpRkC89BQjIF56ig1EF1a/S4iPBfEpBQ2D+JSChkF8SkHDID6loGEQn1LQLsLrqt4mxEeC+KSCdkF8UkG7ID6poFmkl1W9TYiPA/FpBc2C+LSCVhFfVfU2IT4KxCcWtAriEwsaRX5R1duE+BgyLKp2nxAfA+JTC9okx5pq9wnxESA+uaBNEJ9c0CRZllS7T4hfBvHpBU2C+PSCFsmzotp9QvwiiBcoaJFMK6rcKMQvkWtBiFcO4iUKGgTxEgXtkW09iNcN4kUK2gPxIgXNkW85iFcN4mUKmgPxMgWtkXE1iNdMztXU7RTiZ0G8UEFjZF0M4vWCeKmCxkC8VEFb5F0L4tWCeLGCtkC8WEFTZF4K4rWCeLmCpsi9lKqtQvwk2VeCeJ0gXrCgJRAvWNAQ+ReCeJUgXrKgIRAvWdAOBdaBeI2UWEfNXiF+AsSLFjRDkWUgXh+Ily1ohjLLqNgsxI9SaBWI1wbihQtaAfHCBY1QbBH1uoX4MRAvXdAIiJcuaATESxe0QcE1VGsX4kdAPOIbOtWaE/sUX3IJiFcE4hHf2Mmiz+tSfNkVIF4NiEd8c2eLPa9H8aUXUKlhiL8H8YujUlN0gfjFUakpqiieH/E6KJ+/TscQfwfil0elpqgC8cujUlM0USE+4jVQI36VliH+FsRHjEpNUYRCB1VOininJ0V8s2dF/BCVP0WrcU7EN3texA9B/PToS/jyPNh4CZf9qILKQfzk6P7b28dHv/H+93lxih3qZdf2g+LH0den7vBz128cfv0I3y9ffEY+YzFciZ+1NSL+T/f+b9dv7L/ujluzU+xQMbuyfwaweMcfD+2f4guqpmZ09eLv3uOP0pu54xE/N3p6mD/8frs+1T8tTbFC1ei6/qmfq+/j6yZHfDUqJy98esT3ID52VGqKEhAfOyo1RQfVg5cNgPgL1YMjvg71gxdNgPgL9YMjvgYKciO+Bhpyl8yA+E805EZ8BVTkLhgC8Wd0xEZ8cZTELhcD8WeUxEZ8abTELpYD8SfUpEZ8WfSkLpUE8Sf0pEZ8URSlLhQF8Uc0hUZ8QVSFLhMG8Ud0hS6SBvFHdIVGfDGUhS4RB/GdwswFAiG+05g5fyLEdxozI74ICjNnj4R4pZFzh0K81siZUyFea2TEZ0dp5LyxEK82MeIzozZx1mCI15sY8XnRmzhnMsQrDoz4nGgOnDEb4jUHRnw+dOfNlw7xtQPMgvhs6M6L+Fxoj5stH+J1g/hMqI+bK6Bz8frTIj4LBtJmioh47SA+AybC5gmJePUgXh4TYREvjpGsWWIiXj+Il8ZIVsQLYyUq4oUxEzVHUMQbAPGi+E6KeAtkiIp4CyBeEDNBO8SLYiZoh3hJrOQ8I58W8SZAvBRGYl5AvBRGYvaI53Uq3kbKAYiXwUbKAYiXwUbKIdKJfYo3EfIWxEtgIuQtiBfAQsZ7EC+AhYwPCIf2KN5AxBEQn4yBiCMgPhX9CceRzY14MyA+DfUBp0B8EtrzzSAaHfF2QHwCyuPNgvjt6E63hGR6xBsC8VtRHW4ZxG9Ec7YoBBeAeEsgfhOKo0WC+C3oTRaP3Br8iFcbbA2IX43WXOtA/FqUxlqN2DoQbwvEr0Nnqg0gfhUqQ21DaikuxGvMtBXEx6Mw0nYQH0tQlygNoeU0L15bnmQQH4WyOAIgPoLWXuZPyKypZfFNakf8AqFR7Z1QixsV3671DvFTAULDN/sZieW1Iz58Uuv8BXEvPgwpeN7qCCzWsHhfrm/wLN6x9k6iyybFe3tlf8SheKSfSO6BIfH+nuFmcCHe4WP7Mqnt0C0e45O0Kx7l8yR2R4X4+zn9fR4uw5eNz83QXfevY+HcjXAd6IdDPzzxMTmwPFxmrPv8/Lmara2e7PmaUakp17n9u3lvtht477/qeqowOBIGV0Z/IXQD3eHyhYOGdibEX67ocNvdwe7qtq8W/xK+PA82+t3NCbqHH7MP7unz6HXj0/Dw+g+9+N5xd90f6r+5ClZYqC/+5goYdjhsaXff5DWj+29vHx/9Rr8bWfC+/u3T29XcfcWByf4rL6/lt/f9sPj1Ojg1basFReLvXuPD9aZZ+0i0VvzrU3f4ues3+t1u+buu8Mj9WUI3cmSk4vBeD+FO/KU/g5ukP3h/91gUH0ZasdDhaRtTow9HXv907/92/Ua/OzNlhrkvvpd/fdp7eNLr3Y+8FIT+zeBB9mOnN70T5By7Xqn9db6mvxtbv/KOjyk4d4L7meH28/07enfTmJtD13eGwfHQyEv9eJtWU/c9fvq8D/ZuroObW7rvR+jnDVt0vTSGD3v3t7cZ8cNvetJavHL09Bh/+P0m+VQ/NTGE26P97kXl9ejgzW94zVyvhP6l/vblvIvodEXxw2v0c/lCr/WrxacVBC0g3imIdwrinYJ4pyDeKYh3CuKdgninIN4piHcK4p2CeKcg3imIdwrinYJ4pyDeKYh3CuKdgninyIsHG0iLT5yYrZDGSgojpdZrujdNLy6xXtO9aXpxifWa7k3Ti0us13Rvml5cYr2me9P04vLUAyMg3imIdwrinYJ4pyDeKYh3SmXxp1+o9fBbdrbxEmTqSOWRSyTZpQt1xe/D1133+Hu1NvH+V6gvQnnkEkl2qaeq+Pf/jr878fE36W3i8OtH+C4QSiqPWCLRLvVUfqk/Lenhd2duYv/1VCodoTyCiQS71FNP/MvxbpC6ll/Ot9b+SSCY6L0lkqjRO17o3evYYpH7S+zdVCyRYJd6FIgXfKqXuL1kn+pFEkl26QLfxzsF8U5BvFMQ7xTEOwXxTkG8UxDvFMQ7BfFOQbxTEO8UxDsF8U5BvFMQ7xTEOwXxTkG8UxDvFMQ7BfFOQbxT/geKO8h4Rj/gnwAAAABJRU5ErkJggg==" alt="plot of chunk unnamed-chunk-44"/> </p>
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-44"/> </p>
 
 <h3>Spatial autocorrelation <a name="autocorrelation"></a></h3>
 
@@ -4516,12 +4516,12 @@ plot(tmin1.Moran)
 </code></pre>
 
 <pre><code>##   country
-## 1  Israel
-## 2  Israel
-## 3  Israel
-## 4  Israel
-## 5  Israel
-## 6  Israel
+## 1   Spain
+## 2   Spain
+## 3   Spain
+## 4   Spain
+## 5   Spain
+## 6   Spain
 </code></pre>
 
 <pre><code class="r">projection(tmin1) &lt;- crs.geo
@@ -4531,12 +4531,12 @@ head(locs)
 </code></pre>
 
 <pre><code>##   country tmin1
-## 1  Israel   2.7
-## 2  Israel   7.3
-## 3  Israel   8.5
-## 4  Israel   7.3
-## 5  Israel   2.7
-## 6  Israel   7.3
+## 1   Spain   6.7
+## 2   Spain   2.1
+## 3   Spain   6.7
+## 4   Spain   4.2
+## 5   Spain   6.2
+## 6   Spain   6.7
 </code></pre>
 
 <p>You can also extract values for a given region instead of the whole raster:</p>
@@ -4801,7 +4801,7 @@ cosa12 &lt;- K1K2(Helianthemum, j = &quot;deadpl&quot;, i = &quot;survpl&quot;, 
     ylab = expression(K[1] - K[2]), legend = FALSE)
 </code></pre>
 
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAkFBMVEX9/v0AAAAAADkAAGUAOTkAOY8AZrU5AAA5ADk5AGU5OQA5OWU5OY85j485j9plAABlADllAGVlOQBlOY9lZjlltbVltf2POQCPOTmPOWWPj2WPj9qPtY+P29qP2/21ZgC1ZmW124+1/tq1/v3ajznatWXa/rXa/tra/v39tWX9tY/924/9/rX9/tr9/v3/AACvWsXhAAAAMHRSTlP/////////////////////////////////////////////////////////////AP/cg8KHAAAACXBIWXMAAAsSAAALEgHS3X78AAAOxElEQVR4nO2diXrjthVGQ6fxdJpWni6xk7S10o7axLVMvf/bleCiXRRJ7PjP+b4ZSyIFUjq6AC4Jgt/UIMk3sXcA4oB4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi4J4URAvCuJFQbwoiBcF8aIgXhTEi6Ipfvv07dcJL26fvvvtyrvXz/XHy5UCskJT/FWmil9XiE+W909V1ahp/Rh9Hy8Pf6se/lA91kbco3G8Hp7Ub1VVPbyeif94qaofWvGbZvFz80q3mnm9emwK/tenKmf5ZYrfPjV2KuN7L948/0/zUvP04dU4fjs86VY+Ed++wbza/DQMq6HMX3vx7auPET+jJWWKf//U1dHH4h/N0yaw33rH+ydmRfPCifj3T82TTbO0LWqo2dtVuqq++SkMW8mSMsW30XlW1b/WptZetd5agcOTbvVOvGkiWptv5odi3vnWhrZpCvrVevFt24D41DAC2wb5VHzz8L9P7Uvd6+2Tdt374ofVDp07xKdJI6ipkZ/bCrsXX68ffm7ivO/H9U82ba09WtUbhtUQnzBH0Tn08jrxzYKu0jaO+yddTJ+JP+/cDaHflfmI+EQx5odm+YdDVd+lb/uUvXtiTK421fNlOven1uy6+wEMq5mym7494iFLEC8K4kVBvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxoiBeFMSLgnhREC8K4kVBvCiIFwXxoiBeFBvxFaSMR/EW7wXfIF4UxIuCeFEQLwriRUG8KIgXBfGiIF4UxIuCeFEQLwriy2d37UXEF8/u6P8DiC+d3dnfHsQXztV6vka8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" alt="plot of chunk unnamed-chunk-58"/> </p>
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-58"/> </p>
 
 <pre><code>##       lty col   key         label
 ## lo      2   2    lo         lo(r)
@@ -4901,6 +4901,7 @@ library(BioCalc)  # computes 19 bioclimatic variables from monthly climatic valu
 <li><p><a href="http://www.nceas.ucsb.edu/scicomp/usecases">NCEAS Geospatial use cases</a></p></li>
 <li><p><a href="http://spatial-analyst.net">Spatial Analyst</a></p></li>
 <li><p><a href="http://www.molecularecologist.com/2012/09/making-maps-with-r/">Making maps with R</a></p></li>
+<li><p><a href="http://www.rpubs.com/etiennebr/visualraster">The Visual Raster Cheat Sheet</a></p></li>
 <li><p><a href="https://stat.ethz.ch/mailman/listinfo/R-SIG-Geo">R-SIG-Geo mailing list</a></p></li>
 </ul>
 
