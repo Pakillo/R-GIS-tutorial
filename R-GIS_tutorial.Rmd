@@ -14,7 +14,7 @@ v 2.1
 18-12-2013 
 
 
-Check out latest version at [http://pakillo.github.io/R-GIS-tutorial](http://pakillo.github.io/R-GIS-tutorial)
+Check out code and latest version at [GitHub](https://github.com/Pakillo/R-GIS-tutorial/blob/master/R-GIS_tutorial.md)
 
 
 
@@ -1044,7 +1044,13 @@ library(BioCalc)   # computes 19 bioclimatic variables from monthly climatic val
 
 * [Making maps with R](http://www.molecularecologist.com/2012/09/making-maps-with-r/)
 
+* [The Visual Raster Cheat Sheet](http://www.rpubs.com/etiennebr/visualraster)
+
 * [R-SIG-Geo mailing list](https://stat.ethz.ch/mailman/listinfo/R-SIG-Geo)
+
+
+
+
 
 <br>
 [Back to Contents](#contents)
