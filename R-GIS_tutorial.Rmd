@@ -1048,6 +1048,10 @@ library(BioCalc)   # computes 19 bioclimatic variables from monthly climatic val
 
 * [R-SIG-Geo mailing list](https://stat.ethz.ch/mailman/listinfo/R-SIG-Geo)
 
+* [Geospatial data processing and analysis in R (slides)](http://rpubs.com/ajlyons/rspatialdata)
+
+* [rMaps](http://rmaps.github.io/)
+
 
 
 
